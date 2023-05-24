@@ -56,7 +56,7 @@ adv_list = [
     }]
 
 def index(request):
-    return HttpResponse('Welcome safariworld')
+    return render(request, 'booking/index.html')
 
 def adventures(request):
    

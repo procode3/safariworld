@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Safari World</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <header class="flex">
+      <h4 class="text-white font-weight-600 text-3xl">
+        Safari<span style="color: #00f3ff">World</span>
+      </h4>
+      <div class="flex justify-between">
+        <input type="text" value="Search For The Trip or Destination" />
+        <div class="flex justify-content-around">
+          <p>+254 707 033 084</p>
+          <a href="#">Login</a>
+          <a href="#">Signup</a>
+        </div>
+      </div>
+    </header>
+    <nav>
+      <ul>
+        <li>Home</li>
+        <li>Adventures</li>
+        <li>Private Getaway</li>
+        <li>About Us</li>
+      </ul>
+    </nav>
+    <section>
+      <h1>Explore The World With Ease</h1>
+      <a href="#">Discover Top Destinations</a>
+    </section>
+
+    {% block content%} {% endblock %}
+
+    <footer>
+      <div></div>
+      <div>
+        <h4>Adventures</h4>
+        <ul>
+          <li>Upcoming</li>
+          <li>Past</li>
+          <li>Private Getaway</li>
+        </ul>
+      </div>
+      <div>
+        <h4>About Us</h4>
+        <ul>
+          <li>Blog</li>
+          <li>Who We Are</li>
+        </ul>
+      </div>
+      <div></div>
+    </footer>
+  </body>
+</html>
