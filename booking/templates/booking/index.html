@@ -1,23 +1,27 @@
-{% extends 'booking/base.html' %} {% block content %}
-<section>
-  <h3>Trending Trips</h3>
-  <div>
-    <div>
+{% extends 'booking/base.html' %} {% load static %} {% block img %}
+<div class="h-1/2 vh-50 absolute -z-50">
+  <img src="{% static 'images/night.jpg' %}" />
+</div>
+{% endblock %} {% block content %}
+<section class="text-white">
+  <h3 class="text-center my-4 font-bold text-2xl">Trending Trips</h3>
+  <div class="flex justify-center">
+    <div class="bg-[url('images/desert.jpg')] w-20 h-40">
       <h4>Antelope Canyon</h4>
       <p>United States</p>
       <span>10</span> slots remaining.
     </div>
-    <div>
+    <div class="w-20 h-40">
       <h4>Padan Noah</h4>
       <p>Nigeria</p>
       <span>8</span> slots remaining.
     </div>
-    <div>
+    <div class="w-20 h-40">
       <h4>Julian Edwards</h4>
       <p>Australia</p>
       <span>2</span> slots remaining.
     </div>
-    <div>
+    <div class="w-20 h-40">
       <h4>Samburu National Park</h4>
       <p>Samburu</p>
       <span>20</span> slots remaining.

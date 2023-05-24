@@ -7,31 +7,92 @@
     <title>Safari World</title>
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
-  <body>
-    <header class="flex">
-      <h4 class="text-white font-weight-600 text-3xl">
-        Safari<span style="color: #00f3ff">World</span>
-      </h4>
-      <div class="flex justify-between">
-        <input type="text" value="Search For The Trip or Destination" />
-        <div class="flex justify-content-around">
-          <p>+254 707 033 084</p>
+  <body
+    class="bg-gradient-to-b from-blue-400 to-transparent bg-no-repeat bg-cover font-serif"
+  >
+    {%block img %} {% endblock %}
+    <header
+      class="flex items-center justify-between p-4 border border-gray-100 text-white"
+    >
+      <div class="flex items-center">
+        <h4
+          class="text-white font-weight-600 text-xl px-6 border-r border-gray-200"
+        >
+          Safari<span style="color: #00f3ff">World</span>
+        </h4>
+        <div class="flex items-center">
+          <input
+            type="text"
+            placeholder="Search For The Trip or Destination"
+            class="mx-4 p-2 focus:outline-none text-slate-400"
+          />
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+            class="w-5 h-5"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M9 3.5a5.5 5.5 0 100 11 5.5 5.5 0 000-11zM2 9a7 7 0 1112.452 4.391l3.328 3.329a.75.75 0 11-1.06 1.06l-3.329-3.328A7 7 0 012 9z"
+              clip-rule="evenodd"
+            />
+          </svg>
+        </div>
+      </div>
+      <div class="flex space-x-4">
+        <div class="flex space-x-4">
+          <div class="flex item-center">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+              class="w-5 h-5"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M2 3.5A1.5 1.5 0 013.5 2h1.148a1.5 1.5 0 011.465 1.175l.716 3.223a1.5 1.5 0 01-1.052 1.767l-.933.267c-.41.117-.643.555-.48.95a11.542 11.542 0 006.254 6.254c.395.163.833-.07.95-.48l.267-.933a1.5 1.5 0 011.767-1.052l3.223.716A1.5 1.5 0 0118 15.352V16.5a1.5 1.5 0 01-1.5 1.5H15c-1.149 0-2.263-.15-3.326-.43A13.022 13.022 0 012.43 8.326 13.019 13.019 0 012 5V3.5z"
+                clip-rule="evenodd"
+              />
+            </svg>
+            <p>+254 707 033 084</p>
+          </div>
+
           <a href="#">Login</a>
           <a href="#">Signup</a>
         </div>
       </div>
     </header>
-    <nav>
-      <ul>
-        <li>Home</li>
-        <li>Adventures</li>
-        <li>Private Getaway</li>
-        <li>About Us</li>
+
+    <nav class="flex justify-center my-5 text-white">
+      <ul class="flex">
+        <li class="px-16">Home</li>
+        <li class="px-16">Adventures</li>
+        <li class="px-16">Private Getaway</li>
+        <li class="px-16">About Us</li>
       </ul>
     </nav>
     <section>
-      <h1>Explore The World With Ease</h1>
-      <a href="#">Discover Top Destinations</a>
+      <h1 class="text-center text-white font-bold text-5xl py-10">
+        Explore The World With Ease
+      </h1>
+      <div
+        class="flex mx-auto items-center bg-red-600 py-4 px-8 max-w-fit rounded-full"
+      >
+        <a href="#" class="pr-2 text-white">Discover Top Destinations </a>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 20 20"
+          fill="currentColor"
+          class="w-5 h-5 text-white"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z"
+            clip-rule="evenodd"
+          />
+        </svg>
+      </div>
     </section>
 
     {% block content%} {% endblock %}
