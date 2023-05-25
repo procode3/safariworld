@@ -1,30 +1,60 @@
 {% extends 'booking/base.html' %} {% load static %} {% block img %}
-<div class="h-1/2 vh-50 absolute -z-50">
+<div class="vh-50 absolute -z-50">
   <img src="{% static 'images/night.jpg' %}" />
 </div>
 {% endblock %} {% block content %}
 <section class="text-white">
-  <h3 class="text-center my-4 font-bold text-2xl">Trending Trips</h3>
-  <div class="flex justify-center">
-    <div class="bg-[url('images/desert.jpg')] w-20 h-40">
-      <h4>Antelope Canyon</h4>
-      <p>United States</p>
-      <span>10</span> slots remaining.
+  <h3 class="text-center my-8 font-bold text-2xl">Trending Trips</h3>
+  <div class="flex justify-center gap-x-4">
+    <div
+      style="background: url('../../static/images/desert.jpg') no-repeat center"
+      class="w-68 h-80 px-10 pt-36"
+    >
+      <h4 class="font-bold text-lg">Antelope Canyon</h4>
+      <p class="text-gray-100 text-xs">United States</p>
+      <span
+        class="block mx-auto my-4 rounded-full bg-blue-500 w-12 h-12 flex items-center justify-center"
+        >10</span
+      >
+      <p class="text-center">slots remaining.</p>
     </div>
-    <div class="w-20 h-40">
-      <h4>Padan Noah</h4>
-      <p>Nigeria</p>
-      <span>8</span> slots remaining.
+    <div
+      style="background: url('../../static/images/sunset.jpg') no-repeat center"
+      class="w-68 h-80 px-10 pt-36"
+    >
+      <h4 class="font-bold text-lg">Padan Noah</h4>
+      <p class="text-gray-100 text-xs">Nigeria</p>
+      <span
+        class="block mx-auto my-4 rounded-full bg-blue-500 w-12 h-12 flex items-center justify-center"
+        >8</span
+      >
+      <p class="text-center">slots remaining.</p>
     </div>
-    <div class="w-20 h-40">
-      <h4>Julian Edwards</h4>
-      <p>Australia</p>
-      <span>2</span> slots remaining.
+    <div
+      style="background: url('../../static/images/camp.jpg') no-repeat center"
+      class="w-68 h-80 px-10 pt-36"
+    >
+      <h4 class="font-bold text-lg">Julian Edwards</h4>
+      <p class="text-gray-100 text-xs">Australia</p>
+      <span
+        class="block mx-auto my-4 rounded-full bg-blue-500 w-12 h-12 flex items-center justify-center"
+        >2</span
+      >
+      <p class="text-center">slots remaining.</p>
     </div>
-    <div class="w-20 h-40">
-      <h4>Samburu National Park</h4>
-      <p>Samburu</p>
-      <span>20</span> slots remaining.
+    <div
+      style="
+        background: url('../../static/images/lighthouse.jpg') no-repeat center;
+      "
+      class="w-68 h-80 px-10 pt-36"
+    >
+      <h4 class="font-bold text-lg">Samburu National Park</h4>
+      <p class="text-gray-100 text-xs">Samburu</p>
+      <span
+        class="block mx-auto my-4 rounded-full bg-blue-500 w-12 h-12 flex items-center justify-center"
+        >20</span
+      >
+      <p class="text-center">slots remaining.</p>
     </div>
   </div>
 </section>
