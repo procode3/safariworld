@@ -80,7 +80,7 @@ def book_adv(request, id):
         return redirect('/login')
 
 def order_page(request, id):
-    return HttpResponse('ordering') 
+    return render(request, 'booking/order.html') 
 
 def login(request):
     return HttpResponse('Thank you')       

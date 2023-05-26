@@ -7,5 +7,6 @@ urlpatterns = [
     path('adventures/<int:id>', views.adv_details),
     path('<int:id>/booking', views.book_adv),
     path('<int:id>/order', views.order_page),
+    # path('order/', views.order_page),
     path('login/', views.login)
 ]
