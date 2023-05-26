@@ -1,0 +1,55 @@
+{% extends 'booking/base.html' %} {% block content %}
+
+<section class="mx-48">
+  <h1 class="text-white text-center text-4xl font-bold my-10 whitespace-nowrap">
+    Complete Payment To Confirm Booking
+  </h1>
+  <h3 class="font-bold text-2xl my-6 text-white">Order Summary</h3>
+  <div>
+    <table class="w-full text-black border-black border-t-4 border-b-4">
+      <thead>
+        <tr>
+          <th
+            class="px-10 py-2 bg-transparent text-left text-l font-medium tracking-wider"
+          >
+            Item
+          </th>
+          <th
+            class="px-10 py-2 bg-transparent text-left text-l font-medium tracking-wider"
+          >
+            Quantity
+          </th>
+          <th
+            class="px-10 py-2 bg-transparent text-left text-l font-medium tracking-wider"
+          >
+            Date
+          </th>
+          <th
+            class="px-10 py-2 bg-transparent text-left text-l font-medium tracking-wider"
+          >
+            Confirmed
+          </th>
+          <th
+            class="px-10 py-2 bg-transparent text-left text-l font-medium tracking-wider"
+          >
+            Total Amount
+          </th>
+        </tr>
+      </thead>
+      <tbody class="" style="background-color: #bcd3dc">
+        <tr>
+          <td class="px-10 py-4 whitespace-nowrap">
+            Samburu Glamping (3 Double Beds)
+          </td>
+          <td class="px-10 py-4 whitespace-nowrap">6</td>
+          <td class="px-10 py-4 whitespace-nowrap">06/06/2023</td>
+          <td class="px-10 py-4 whitespace-nowrap">Yes</td>
+          <td class="px-10 py-4 whitespace-nowrap">
+            <span>Ksh.</span>20,000<span>/=</span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+{% endblock %}
