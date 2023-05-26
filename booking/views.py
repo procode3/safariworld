@@ -60,7 +60,7 @@ def index(request):
 
 def adventures(request):
    
-    return HttpResponse(adv_list)
+    return render(request, 'booking/all_adventures.html')
 
 def adv_details(request, id):
   return render(request, 'booking/adventure.html')
