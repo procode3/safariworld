@@ -63,13 +63,7 @@ def adventures(request):
     return HttpResponse(adv_list)
 
 def adv_details(request, id):
-    adv_item = adv_list[id-1]
-    template = f"""
-        <h1>{adv_item['name']}</h1>
-        <p>{adv_item['description']}</p>
-        <p>{adv_item['activities']}</p>
-    """
-    return HttpResponse(template)
+  return render(request, 'booking/adventure.html')
 
 def book_adv(request, id):
     authenticated = True
