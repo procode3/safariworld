@@ -60,7 +60,7 @@ def index(request):
 
 def adventures(request):
    
-    return HttpResponse(adv_list)
+    return render(request, 'booking/all_adventures.html')
 
 def adv_details(request, id):
     adv_item = adv_list[id-1]
