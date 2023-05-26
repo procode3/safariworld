@@ -24,7 +24,7 @@
           <input
             type="text"
             placeholder="Search For The Trip or Destination"
-            class="mx-4 p-2 focus:outline-none text-slate-400"
+            class="mx-4 p-2 focus:outline-none text-slate-400 bg-transparent w-100"
           />
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -66,10 +66,10 @@
 
     <nav class="flex justify-center my-5 text-white">
       <ul class="flex">
-        <li class="px-16">Home</li>
-        <li class="px-16">Adventures</li>
-        <li class="px-16">Private Getaway</li>
-        <li class="px-16">About Us</li>
+        <li class="px-16"><a href="">Home</a></li>
+        <li class="px-16"><a href="">Adventures</a></li>
+        <li class="px-16"><a href="">Private Getaway</a></li>
+        <li class="px-16"><a href="">About Us</a></li>
       </ul>
     </nav>
     <section>
@@ -97,10 +97,12 @@
 
     {% block content%} {% endblock %}
 
-    <footer>
+    <footer
+      class="flex bg-blue-500 h-full justify-around items-center py-4 text-white mt-20"
+    >
       <div></div>
       <div>
-        <h4>Adventures</h4>
+        <h4 class="mb-3 text-lg text-center font-bold">Adventures</h4>
         <ul>
           <li>Upcoming</li>
           <li>Past</li>
@@ -108,13 +110,75 @@
         </ul>
       </div>
       <div>
-        <h4>About Us</h4>
+        <h4 class="mb-3 text-lg text-center font-bold">About Us</h4>
         <ul>
           <li>Blog</li>
           <li>Who We Are</li>
         </ul>
       </div>
-      <div></div>
+      <div>
+        <h4 class="mb-3 text-lg text-center font-bold">Contact Us</h4>
+        <div class="flex item-center gap-x-2">
+          <svg
+            class="h-8 w-8 text-white-300"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path
+              d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"
+            />
+          </svg>
+          <svg
+            class="h-8 w-8 text-white"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            stroke-width="2"
+            stroke="currentColor"
+            fill="none"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path stroke="none" d="M0 0h24v24H0z" />
+            <rect x="4" y="4" width="16" height="16" rx="4" />
+            <circle cx="12" cy="12" r="3" />
+            <line x1="16.5" y1="7.5" x2="16.5" y2="7.501" />
+          </svg>
+          <svg
+            class="h-8 w-8 text-white"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path
+              d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"
+            />
+          </svg>
+          <svg
+            class="h-8 w-8 text-white"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            stroke-width="2"
+            stroke="currentColor"
+            fill="none"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path stroke="none" d="M0 0h24v24H0z" />
+            <path
+              d="M16.882 7.842a4.882 4.882 0 0 0 -9.764 0c0 4.273-.213 6.409-4.118 8.118 2 .882 2 .882 3 3 3 0 4 2 6 2s3-2 6-2c1-2.118 1-2.118 3-3-3.906-1.709-4.118-3.845-4.118-8.118h0zM3 15.961c4-2.118 4-4.118 1-7.118m17 7.118c-4-2.118-4-4.118-1-7.118"
+            />
+          </svg>
+        </div>
+      </div>
     </footer>
   </body>
 </html>
