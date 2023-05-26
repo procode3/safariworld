@@ -1,16 +1,17 @@
 {% extends 'booking/base.html' %} {% load static %} {% block img %}
-<div class="vh-50 absolute -z-50">
-  <img src="{% static 'images/night.jpg' %}" />
+<div
+  class="bg-[url('static/images/night.jpg')] w-full bg-cover bg-center h-full absolute -z-50"
+>
+  <!-- <img src="{% static 'images/night.jpg' %}" /> -->
 </div>
 {% endblock %} {% block content %}
 <section class="text-white">
   <h3 class="text-center my-8 font-bold text-2xl">Trending Trips</h3>
   <div class="flex justify-center gap-x-4">
     <div
-      style="background: url('../../static/images/desert.jpg') no-repeat center"
-      class="w-68 h-80 px-10 pt-36"
+      class="bg-[url('static/images/desert.jpg')] w-48 h-80 bg-center bg-cover text-center pt-36"
     >
-      <h4 class="font-bold text-lg">Antelope Canyon</h4>
+      <h4 class="font-bold text-sm">Antelope Canyon</h4>
       <p class="text-gray-100 text-xs">United States</p>
       <span
         class="block mx-auto my-4 rounded-full bg-blue-500 w-12 h-12 flex items-center justify-center"
@@ -19,10 +20,9 @@
       <p class="text-center">slots remaining.</p>
     </div>
     <div
-      style="background: url('../../static/images/sunset.jpg') no-repeat center"
-      class="w-68 h-80 px-10 pt-36"
+      class="bg-[url('static/images/sunset.jpg')] bg-opacity-50 w-48 h-80 bg-center bg-cover text-center pt-36"
     >
-      <h4 class="font-bold text-lg">Padan Noah</h4>
+      <h4 class="font-bold text-sm">Padan Noah</h4>
       <p class="text-gray-100 text-xs">Nigeria</p>
       <span
         class="block mx-auto my-4 rounded-full bg-blue-500 w-12 h-12 flex items-center justify-center"
@@ -31,24 +31,20 @@
       <p class="text-center">slots remaining.</p>
     </div>
     <div
-      style="background: url('../../static/images/camp.jpg') no-repeat center"
-      class="w-68 h-80 px-10 pt-36"
+      class="bg-[url('static/images/camp.jpg')] bg-opacity-50 w-48 h-80 bg-center bg-cover text-center pt-36"
     >
-      <h4 class="font-bold text-lg">Julian Edwards</h4>
+      <h4 class="font-bold text-sm">Julian Edwards</h4>
       <p class="text-gray-100 text-xs">Australia</p>
       <span
         class="block mx-auto my-4 rounded-full bg-blue-500 w-12 h-12 flex items-center justify-center"
         >2</span
       >
-      <p class="text-center">slots remaining.</p>
+      <p class="text-center bottom-1">slots remaining.</p>
     </div>
     <div
-      style="
-        background: url('../../static/images/lighthouse.jpg') no-repeat center;
-      "
-      class="w-68 h-80 px-10 pt-36"
+      class="bg-[url('static/images/lighthouse.jpg')] w-48 h-80 bg-center bg-cover text-center pt-36"
     >
-      <h4 class="font-bold text-lg">Samburu National Park</h4>
+      <h4 class="font-bold text-sm">Samburu National Park</h4>
       <p class="text-gray-100 text-xs">Samburu</p>
       <span
         class="block mx-auto my-4 rounded-full bg-blue-500 w-12 h-12 flex items-center justify-center"
@@ -58,10 +54,10 @@
     </div>
   </div>
 </section>
-<section>
-  <div>
-    <h3>Book A Private Getaway</h3>
-    <p>
+<section class="flex mx-auto pt-20 items-center mt-20">
+  <div class="flex-1 mx-auto px-28">
+    <h3 class="pt-8 text-2xl font-bold">Book A Private Getaway</h3>
+    <p class="py-4">
       Safari world prides itself in offering botique travel experiences across
       Kenya and Africa. We have tasted the magic on the other side; and we want
       to bring you along..to feel and experience authentic travel accross the
@@ -69,12 +65,24 @@
       included in our adventures? Worry not! You can have a one on one
       consultation with us and provide a private getaway for you.
     </p>
-    <a href="#">Consult</a>
+    <div class="flex items-center bg-red-600 py-4 px-8 max-w-fit">
+      <a href="#" class="pr-2 text-white">Consult </a>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 20 20"
+        fill="currentColor"
+        class="w-5 h-5 text-white"
+      >
+        <path
+          fill-rule="evenodd"
+          d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z"
+          clip-rule="evenodd"
+        />
+      </svg>
+    </div>
   </div>
-  <div>
-    <div></div>
-    <div></div>
-    <div></div>
-  </div>
+  <div
+    class="bg-[url('static/images/elephant.jpg')] bg-cover bg-center flex-1 mr-10 bg-blue-500 w-1/2 h-72"
+  ></div>
 </section>
 {% endblock %}
