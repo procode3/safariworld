@@ -12,19 +12,19 @@
   >
     {%block img %} {% endblock %}
     <header
-      class="flex items-center justify-between p-4 border border-gray-100 text-white"
+      class="md:flex items-center justify-between py-4 border border-gray-100 text-white"
     >
       <div class="flex items-center">
         <h4
-          class="text-white font-weight-600 text-xl px-6 border-r border-gray-200"
+          class="text-white font-weight-600 text-xl px-4 md:px-6 border-r border-gray-200"
         >
           Safari<span style="color: #00f3ff">World</span>
         </h4>
-        <div class="flex items-center">
+        <div class="flex items-center sm:text-red">
           <input
             type="text"
             placeholder="Search For The Trip or Destination"
-            class="mx-4 p-2 focus:outline-none text-slate-400 bg-transparent w-100"
+            class="mx-4 p-2 focus:outline-none text-white-300 bg-transparent w-100"
           />
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -41,7 +41,7 @@
         </div>
       </div>
       <div class="flex space-x-4">
-        <div class="flex space-x-4">
+        <div class="flex space-x-4 mx-2">
           <div class="flex item-center">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -64,12 +64,12 @@
       </div>
     </header>
 
-    <nav class="flex justify-center my-5 text-white">
-      <ul class="flex">
-        <li class="px-16"><a href="">Home</a></li>
-        <li class="px-16"><a href="">Adventures</a></li>
-        <li class="px-16"><a href="">Private Getaway</a></li>
-        <li class="px-16"><a href="">About Us</a></li>
+    <nav class="flex md:justify-center my-5 text-white">
+      <ul class="md:flex">
+        <li class="px-8 md:px-16"><a href="">Home</a></li>
+        <li class="px-8 md:px-16"><a href="">Adventures</a></li>
+        <li class="px-8 md:px-16"><a href="">Private Getaway</a></li>
+        <li class="px-8 md:px-16"><a href="">About Us</a></li>
       </ul>
     </nav>
     <section>
