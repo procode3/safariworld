@@ -1,2 +1,2 @@
-safariapp/__pycache__/*
-booking/__pycache__/*
+safariapp/__pycache__/*.pyc
+booking/__pycache__/*.pyc
