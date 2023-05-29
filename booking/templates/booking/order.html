@@ -1,7 +1,7 @@
 {% extends 'booking/base.html' %} {% block content %}
 
-<section class="md:mx-48 sm:mx-24">
-  <h1 class="text-white text-center text-4xl font-bold my-10 whitespace-nowrap">
+<section class="flex-column items-center max-w-screen-lg mx-auto">
+  <h1 class="text-white text-center text-2xl md:text-4xl font-bold my-10">
     Complete Payment To Confirm Booking
   </h1>
   <h3 class="font-bold text-2xl my-6 text-white">Order Summary</h3>
@@ -91,6 +91,9 @@
       />
       <a class="bg-red-600 text-white font-xl p-2" href="#">Pay</a>
     </div>
+    <a class="bg-red-600 text-white font-xl p-2 font-bold" href="#"
+      >Complete Order</a
+    >
   </div>
 </section>
 {% endblock %}
