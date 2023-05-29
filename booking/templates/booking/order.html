@@ -1,55 +1,96 @@
 {% extends 'booking/base.html' %} {% block content %}
 
-<section class="mx-48">
+<section class="md:mx-48 sm:mx-24">
   <h1 class="text-white text-center text-4xl font-bold my-10 whitespace-nowrap">
     Complete Payment To Confirm Booking
   </h1>
   <h3 class="font-bold text-2xl my-6 text-white">Order Summary</h3>
   <div>
-    <table class="w-full text-black border-black border-t-4 border-b-4">
-      <thead>
-        <tr>
-          <th
-            class="px-10 py-2 bg-transparent text-left text-l font-medium tracking-wider"
-          >
-            Item
-          </th>
-          <th
-            class="px-10 py-2 bg-transparent text-left text-l font-medium tracking-wider"
-          >
-            Quantity
-          </th>
-          <th
-            class="px-10 py-2 bg-transparent text-left text-l font-medium tracking-wider"
-          >
-            Date
-          </th>
-          <th
-            class="px-10 py-2 bg-transparent text-left text-l font-medium tracking-wider"
-          >
-            Confirmed
-          </th>
-          <th
-            class="px-10 py-2 bg-transparent text-left text-l font-medium tracking-wider"
-          >
-            Total Amount
-          </th>
-        </tr>
-      </thead>
-      <tbody class="" style="background-color: #bcd3dc">
-        <tr>
-          <td class="px-10 py-4 whitespace-nowrap">
-            Samburu Glamping (3 Double Beds)
-          </td>
-          <td class="px-10 py-4 whitespace-nowrap">6</td>
-          <td class="px-10 py-4 whitespace-nowrap">06/06/2023</td>
-          <td class="px-10 py-4 whitespace-nowrap">Yes</td>
-          <td class="px-10 py-4 whitespace-nowrap">
-            <span>Ksh.</span>20,000<span>/=</span>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="overflow-x-auto">
+      <table class="w-full text-black border-black border-t-4 border-b-4">
+        <thead>
+          <tr>
+            <th
+              class="px-10 py-2 bg-transparent text-left text-l font-medium tracking-wider"
+            >
+              Item
+            </th>
+            <th
+              class="px-10 py-2 bg-transparent text-left text-l font-medium tracking-wider"
+            >
+              Quantity
+            </th>
+            <th
+              class="px-10 py-2 bg-transparent text-left text-l font-medium tracking-wider"
+            >
+              Date
+            </th>
+            <th
+              class="px-10 py-2 bg-transparent text-left text-l font-medium tracking-wider"
+            >
+              Confirmed
+            </th>
+            <th
+              class="px-10 py-2 bg-transparent text-left text-l font-medium tracking-wider"
+            >
+              Total Amount
+            </th>
+          </tr>
+        </thead>
+        <tbody class="" style="background-color: #bcd3dc">
+          <tr>
+            <td class="px-10 py-4 whitespace-nowrap">
+              Samburu Glamping (3 Double Beds)
+            </td>
+            <td class="px-10 py-4 whitespace-nowrap">6</td>
+            <td class="px-10 py-4 whitespace-nowrap">06/06/2023</td>
+            <td class="px-10 py-4 whitespace-nowrap">Yes</td>
+            <td class="px-10 py-4 whitespace-nowrap">
+              <span>Ksh.</span>20,000<span>/=</span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2 class="text-white text-2xl bg-red-600 my-3 p-4 w-fit font-bold">
+      Choose Payment Method
+    </h2>
+    <div class="text-3xl">
+      <input
+        class="mx-2"
+        type="radio"
+        id="mpesa"
+        name="payments"
+        value="M-Pesa"
+      />
+      <label for="mpesa">M-Pesa</label>
+      <input class="mx-2" type="radio" id="card" name="payments" value="Card" />
+      <label for="card">Card</label>
+    </div>
+    <p class="text-xl font-bold my-3">Instructions:</p>
+    <ol class="list-decimal list-inside">
+      <li>Enter your phone number</li>
+      <li>Click pay and your pin on the prompt</li>
+    </ol>
+    <p class="text-xl font-bold my-3">Or</p>
+    <ol class="list-decimal list-inside">
+      <li>Open M-Pesa app/STK</li>
+      <li>Choose buy Goods and Services</li>
+      <li>Enter till: <strong>5050522</strong></li>
+      <li>Enter amount: <strong>{Total}</strong></li>
+      <li>Enter pin and confirm payment</li>
+    </ol>
+    <div class="my-4 text-lg font-bold">
+      <label for="tel">Enter Phone Number: </label>
+      <span class="bg-blue-300 p-2 text-white">+254</span>
+      <input
+        class="bg-blue-300 p-1 text-white focus:outline-none"
+        type="text"
+        id="tel"
+      />
+      <a class="bg-red-600 text-white font-xl p-2" href="#">Pay</a>
+    </div>
   </div>
 </section>
 {% endblock %}
