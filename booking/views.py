@@ -39,6 +39,11 @@ def login_page(request):
     print('Error login')
     return render(request, 'booking/login.html')
 
+def logout_page(request):
+    next = request.GET.get('next', '/')
+    logout(request)
+    return HttpResponseRedirect(next)
+
 def signup_page(request):
     form = SignUpForm()
 

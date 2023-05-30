@@ -7,43 +7,60 @@
     <title>Safari World</title>
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
-  <body>
-    <h1 class="">Log In To Book</h1>
-    <form method="POST" class="flex-column">
-      {% csrf_token %}
-      <div>
-        <label for="username">Username</label>
-        <input type="text" id="username" name="username" />
-      </div>
-      <div>
-        <label for="passwd">Password</label>
-        <input type="password" id="passwd" name="password" />
-      </div>
-      <div>
-        <input type="checkbox" name="remember" id="remember" />
-        <label for="remember">Remember Me</label>
-        <a href="#">Forgot password?</a>
-      </div>
-      <div class="flex bg-red-600 py-4 px-8 max-w-fit rounded-full">
-        <input type="submit" class="pr-2 text-white" value="Login" />
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 20 20"
-          fill="currentColor"
-          class="w-5 h-5 text-white"
-        >
-          <path
-            fill-rule="evenodd"
-            d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z"
-            clip-rule="evenodd"
+  <body
+    class="flex justify-center items-center min-h-screen bg-gradient-to-b from-blue-800 to-transparent bg-no-repeat bg-cover font-serif"
+  >
+    <section
+      class="md:w-1/3 p-10 my-auto rounded text-white"
+      style="background-color: #357b95"
+    >
+      <h1 class="text-4xl text-center mb-4">Log In To Book</h1>
+      <form method="POST" class="flex-col items-center">
+        {% csrf_token %}
+        <div class="my-3 flex flex-col justify-between">
+          <label for="username">Username</label>
+          <input type="text" id="username" name="username" class="text-black" />
+        </div>
+        <div class="my-3 flex flex-col justify-between">
+          <label for="passwd">Password</label>
+          <input
+            type="password"
+            id="passwd"
+            name="password"
+            class="text-black"
           />
-        </svg>
-      </div>
-      <input type="hidden" name="next" value="{{ request.GET.next }}" />
-      <div>
-        <span>Don't have an account?</span>
-        <a href="{% url 'signup' %}">Signup</a>
-      </div>
-    </form>
+        </div>
+        <div class="my-3 flex justify-between">
+          <div>
+            <input type="checkbox" name="remember" id="remember" />
+            <label for="remember">Remember Me</label>
+          </div>
+
+          <a href="#">Forgot password?</a>
+        </div>
+        <div
+          class="flex bg-red-600 py-4 px-8 max-w-screen text-center justify-center items-center"
+        >
+          <input type="submit" class="pr-2 text-white" value="Login" />
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+            class="w-5 h-5 text-white"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z"
+              clip-rule="evenodd"
+            />
+          </svg>
+        </div>
+        <input type="hidden" name="next" value="{{ request.GET.next }}" />
+        <div>
+          <span>Don't have an account?</span>
+          <a href="{% url 'signup' %}" class="underline">Signup</a>
+        </div>
+      </form>
+    </section>
   </body>
 </html>

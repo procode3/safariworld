@@ -8,6 +8,7 @@ urlpatterns = [
     path('<int:id>/booking', views.book_adv, name='booking'),
     path('<int:id>/order', views.order_page, name='order'),
     # path('order/', views.order_page),
-    path('login/', views.login_page, name='login'), 
+    path('login/', views.login_page, name='login'),
+    path('logout/', views.logout_page, name='logout'),  
     path('signup/', views.signup_page, name='signup')
 ]
