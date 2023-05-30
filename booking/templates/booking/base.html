@@ -58,8 +58,10 @@
             <p>+254 707 033 084</p>
           </div>
 
-          <a href="#">Login</a>
-          <a href="#">Signup</a>
+          <a href="{% url 'login' %}?next={{ request.path|urlencode }}"
+            >Login</a
+          >
+          <a href="{% url 'signup' %}">Signup</a>
         </div>
       </div>
     </header>
