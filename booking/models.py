@@ -1,4 +1,6 @@
 from django.db import models
+from django.contrib.auth.models import AbstractUser
+import os
 import uuid
 
 
@@ -46,7 +48,7 @@ class Adventure(BaseModel):
     activities = models.CharField(max_length=250)
 
 
-class User(BaseModel):
+class User(BaseModel, AbstractUser):
     """Instantiate users for the safariworld system"""
     USER_TYPES = (
         ('A', 'Admin'),
@@ -63,10 +65,13 @@ class User(BaseModel):
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
     email = models.EmailField(max_length=250)
+    date_of_birth = models.DateField(null=True)
     phone_number = models.CharField(max_length=20)
     gender = models.IntegerField(choices=GENDER_CHOICES, null=True)
     bio = models.CharField(max_length=250, blank=True)
     password = models.CharField(max_length=128)
+
+    REQUIRED_FIELDS = ['first_name', 'last_name', 'phone_number', 'password']
 
 
 class Review(BaseModel):
@@ -78,7 +83,6 @@ class Review(BaseModel):
 
 
 
-    
 class Amenity(BaseModel):
     """Amenities for adventures specifing the specific section for a particular amenity"""
     SECTION_CHOICES = (
