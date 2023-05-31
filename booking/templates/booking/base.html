@@ -6,9 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Safari World</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <style>
+      body {
+      font-family: 'Poppins' !important;
+      }
+    </style>
   </head>
   <body
-    class="bg-gradient-to-b from-blue-800 to-transparent bg-no-repeat bg-cover font-serif"
+    class="bg-gradient-to-b from-[#357B95] to-transparent bg-no-repeat bg-cover font-serif"
   >
     {%block img %} {% endblock %}
     <header
@@ -106,7 +112,7 @@
     {% block content%} {% endblock %}
 
     <footer
-      class="md:flex bg-blue-500 h-full justify-around items-center px-8 md:px-1 py-4 text-white mt-20"
+      class="md:flex bg-[#357B95] h-full justify-around items-center px-8 md:px-1 py-4 text-white mt-20"
     >
       <div class="flex">
         <div class="w-10 h-10 p-3 rounded-full bg-red-600"></div>
