@@ -6,25 +6,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Safari World</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Poppins" !important;
+      }
+    </style>
   </head>
   <body
-    class="bg-gradient-to-b from-blue-400 to-transparent bg-no-repeat bg-cover font-serif"
+    class="bg-gradient-to-b from-[#357B95] to-transparent bg-no-repeat bg-cover font-serif"
   >
     {%block img %} {% endblock %}
     <header
-      class="flex items-center justify-between p-4 border border-gray-100 text-white"
+      class="md:flex items-center justify-between py-4 border border-gray-100 text-white"
     >
       <div class="flex items-center">
         <h4
-          class="text-white font-weight-600 text-xl px-6 border-r border-gray-200"
+          class="text-white font-weight-600 text-xl px-4 md:px-6 border-r border-gray-200"
         >
           Safari<span style="color: #00f3ff">World</span>
         </h4>
-        <div class="flex items-center">
+        <div class="flex items-center sm:text-red">
           <input
             type="text"
             placeholder="Search For The Trip or Destination"
-            class="mx-4 p-2 focus:outline-none text-slate-400 bg-transparent w-100"
+            class="mx-4 p-2 focus:outline-none text-white-300 bg-transparent w-100"
           />
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -41,7 +50,7 @@
         </div>
       </div>
       <div class="flex space-x-4">
-        <div class="flex space-x-4">
+        <div class="flex space-x-4 mx-2">
           <div class="flex item-center">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -58,18 +67,27 @@
             <p>+254 707 033 084</p>
           </div>
 
-          <a href="#">Login</a>
-          <a href="#">Signup</a>
+          {% if request.user.is_authenticated %}
+          <p>Welcome {{ request.user.first_name }}</p>
+          <a href="{% url 'logout' %}?next={{ request.path|urlencode }}"
+            >Logout</a
+          >
+          {% else %}
+          <a href="{% url 'login' %}?next={{ request.path|urlencode }}"
+            >Login</a
+          >
+          <a href="{% url 'signup' %}">Signup</a>
+          {% endif %}
         </div>
       </div>
     </header>
 
-    <nav class="flex justify-center my-5 text-white">
-      <ul class="flex">
-        <li class="px-16"><a href="">Home</a></li>
-        <li class="px-16"><a href="">Adventures</a></li>
-        <li class="px-16"><a href="">Private Getaway</a></li>
-        <li class="px-16"><a href="">About Us</a></li>
+    <nav class="flex md:justify-center my-5 text-white">
+      <ul class="md:flex">
+        <li class="px-8 md:px-16"><a href="">Home</a></li>
+        <li class="px-8 md:px-16"><a href="">Adventures</a></li>
+        <li class="px-8 md:px-16"><a href="">Private Getaway</a></li>
+        <li class="px-8 md:px-16"><a href="">About Us</a></li>
       </ul>
     </nav>
     <section>
@@ -98,26 +116,54 @@
     {% block content%} {% endblock %}
 
     <footer
-      class="flex bg-blue-500 h-full justify-around items-center py-4 text-white mt-20"
+      class="md:flex bg-[#357B95] h-full justify-around items-center px-8 md:px-1 py-4 text-white mt-20"
     >
-      <div></div>
+      <div class="flex">
+        <div class="w-10 h-10 p-3 rounded-full bg-red-600"></div>
+        <div
+          class="w-10 h-10 p-3 rounded-full bg-blue-300 -translate-x-6"
+        ></div>
+        <div
+          class="w-10 h-10 p-3 rounded-full bg-red-600 -translate-x-12"
+        ></div>
+      </div>
       <div>
-        <h4 class="mb-3 text-lg text-center font-bold">Adventures</h4>
+        <h4 class="mb-3 text-lg md:text-center font-bold">Adventures</h4>
         <ul>
-          <li>Upcoming</li>
-          <li>Past</li>
-          <li>Private Getaway</li>
+          <li
+            class="pl-4 before:content-['>'] before:mr-3 before:text-red-800 before:font-bold"
+          >
+            <a href="#">Upcoming</a>
+          </li>
+          <li
+            class="pl-4 before:content-['>'] before:mr-3 before:text-red-800 before:font-bold"
+          >
+            <a href="#">Past</a>
+          </li>
+          <li
+            class="pl-4 before:content-['>'] before:mr-3 before:text-red-800 before:font-bold"
+          >
+            <a href="#">Private Getaway</a>
+          </li>
         </ul>
       </div>
       <div>
-        <h4 class="mb-3 text-lg text-center font-bold">About Us</h4>
+        <h4 class="mb-3 text-lg md:text-center font-bold">About Us</h4>
         <ul>
-          <li>Blog</li>
-          <li>Who We Are</li>
+          <li
+            class="pl-4 before:content-['>'] before:mr-3 before:text-red-800 before:font-bold"
+          >
+            <a href="#">Blog</a>
+          </li>
+          <li
+            class="pl-4 before:content-['>'] before:mr-3 before:text-red-800 before:font-bold"
+          >
+            <a href="#">Who We Are</a>
+          </li>
         </ul>
       </div>
       <div>
-        <h4 class="mb-3 text-lg text-center font-bold">Contact Us</h4>
+        <h4 class="mb-3 text-lg md:text-center font-bold">Contact Us</h4>
         <div class="flex item-center gap-x-2">
           <svg
             class="h-8 w-8 text-white-300"
