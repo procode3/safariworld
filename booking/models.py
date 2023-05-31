@@ -46,6 +46,7 @@ class Adventure(BaseModel):
     slots = models.IntegerField()
     age_limit = models.IntegerField(default=0)
     activities = models.CharField(max_length=250)
+    image = models.FileField(upload_to='images', null=True)
 
 
 class User(BaseModel, AbstractUser):

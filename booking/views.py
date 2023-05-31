@@ -2,17 +2,24 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponseRedirect
 from .forms import SignUpForm
 from django.contrib.auth import authenticate, login, logout
+from .models import Adventure
+from django.urls import reverse
 
 
 def index(request):
-    return render(request, 'booking/index.html')
+    adventures = Adventure.objects.order_by('departure_date')[:4]
+    context = {"adventures": adventures}
+    return render(request, 'booking/index.html', context)
 
 def adventures(request):
-   
-    return render(request, 'booking/all_adventures.html')
+    adventures = Adventure.objects.all()
+    context = {"adventures": adventures}
+    return render(request, 'booking/all_adventures.html', context)
 
 def adv_details(request, id):
-  return render(request, 'booking/adventure.html')
+  adventure_url = reverse('adventure', args=[id])
+
+  return render(request, 'booking/adventure.html', {'adventure_url': adventure_url})
 
 def book_adv(request, id):
     authenticated = True

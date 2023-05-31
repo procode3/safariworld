@@ -8,50 +8,19 @@
 <section class="text-white">
   <h3 class="text-center my-8 font-bold text-2xl">Trending Trips</h3>
   <div class="flex justify-center gap-x-4">
+    {% for adventure in adventures %}
     <div
-      class="bg-[url('static/images/desert.jpg')] w-48 h-80 bg-center bg-cover text-center pt-36"
+      class="bg-[url('/static/{{adventure.image}}')] w-48 h-80 bg-center bg-cover text-center pt-36"
     >
-      <h4 class="font-bold text-sm">Antelope Canyon</h4>
-      <p class="text-gray-100 text-xs">United States</p>
+      <h4 class="font-bold text-sm">{{ adventure.name }}</h4>
+      <p class="text-gray-100 text-xs">{{ adventure.place_id.name }}</p>
       <span
         class="block mx-auto my-4 rounded-full bg-blue-500 w-12 h-12 flex items-center justify-center"
-        >10</span
+        >{{ adventure.slots }}</span
       >
       <p class="text-center">slots remaining.</p>
     </div>
-    <div
-      class="bg-[url('static/images/sunset.jpg')] bg-opacity-50 w-48 h-80 bg-center bg-cover text-center pt-36"
-    >
-      <h4 class="font-bold text-sm">Padan Noah</h4>
-      <p class="text-gray-100 text-xs">Nigeria</p>
-      <span
-        class="block mx-auto my-4 rounded-full bg-blue-500 w-12 h-12 flex items-center justify-center"
-        >8</span
-      >
-      <p class="text-center">slots remaining.</p>
-    </div>
-    <div
-      class="bg-[url('static/images/camp.jpg')] bg-opacity-50 w-48 h-80 bg-center bg-cover text-center pt-36"
-    >
-      <h4 class="font-bold text-sm">Julian Edwards</h4>
-      <p class="text-gray-100 text-xs">Australia</p>
-      <span
-        class="block mx-auto my-4 rounded-full bg-blue-500 w-12 h-12 flex items-center justify-center"
-        >2</span
-      >
-      <p class="text-center bottom-1">slots remaining.</p>
-    </div>
-    <div
-      class="bg-[url('static/images/lighthouse.jpg')] w-48 h-80 bg-center bg-cover text-center pt-36"
-    >
-      <h4 class="font-bold text-sm">Samburu National Park</h4>
-      <p class="text-gray-100 text-xs">Samburu</p>
-      <span
-        class="block mx-auto my-4 rounded-full bg-blue-500 w-12 h-12 flex items-center justify-center"
-        >20</span
-      >
-      <p class="text-center">slots remaining.</p>
-    </div>
+    {% endfor %}
   </div>
 </section>
 <section class="md:flex flex-column md:mx-auto pt-20 md:items-center mt-20">

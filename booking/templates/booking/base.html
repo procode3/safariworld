@@ -84,10 +84,12 @@
 
     <nav class="flex md:justify-center my-5 text-white">
       <ul class="md:flex">
-        <li class="px-8 md:px-16"><a href="">Home</a></li>
-        <li class="px-8 md:px-16"><a href="">Adventures</a></li>
-        <li class="px-8 md:px-16"><a href="">Private Getaway</a></li>
-        <li class="px-8 md:px-16"><a href="">About Us</a></li>
+        <li class="px-8 md:px-16"><a href="{% url 'home' %}">Home</a></li>
+        <li class="px-8 md:px-16">
+          <a href="{% url 'adventures' %}">Adventures</a>
+        </li>
+        <li class="px-8 md:px-16"><a href="#">Private Getaway</a></li>
+        <li class="px-8 md:px-16"><a href="#">About Us</a></li>
       </ul>
     </nav>
     <section>
@@ -97,7 +99,9 @@
       <div
         class="flex mx-auto items-center bg-red-600 py-4 px-8 max-w-fit rounded-full"
       >
-        <a href="#" class="pr-2 text-white">Discover Top Destinations </a>
+        <a href="{% url 'adventures' %}" class="pr-2 text-white"
+          >Discover Top Destinations
+        </a>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 20 20"
