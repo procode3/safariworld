@@ -6,10 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Safari World</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins"
+      rel="stylesheet"
+    />
     <style>
       body {
-      font-family: 'Poppins' !important;
+        font-family: "Poppins" !important;
       }
     </style>
   </head>
@@ -65,6 +68,7 @@
           </div>
 
           {% if request.user.is_authenticated %}
+          <p>Welcome {{ request.user.first_name }}</p>
           <a href="{% url 'logout' %}?next={{ request.path|urlencode }}"
             >Logout</a
           >
