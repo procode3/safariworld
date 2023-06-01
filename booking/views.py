@@ -4,6 +4,7 @@ from .forms import SignUpForm
 from django.contrib.auth import authenticate, login, logout
 from .models import Adventure
 from django.urls import reverse
+from django.core.paginator import Paginator
 
 
 def index(request):
@@ -12,19 +13,23 @@ def index(request):
     return render(request, 'booking/index.html', context)
 
 def adventures(request):
-    adventures = Adventure.objects.all()
+    p = Paginator(Adventure.objects.all(), 2)
+    page = request.GET.get('page')
+    adventures = p.get_page(page)
     context = {"adventures": adventures}
     return render(request, 'booking/all_adventures.html', context)
 
 def adv_details(request, id):
-  adventure_url = reverse('adventure', args=[id])
-  adv = Adventure.objects.get(id=id)
-  activities = [activity.strip() for activity in adv.activities.split(",")]
-  itineraries = adv.itinerary_advs.all()[:3]
-  print(itineraries[0].image)
-  context = {'adventure_url': adventure_url, 'adv': adv, 'activities': activities, 'itineraries': itineraries }
+    adventure_url = reverse('adventure', args=[id])
+    adv = Adventure.objects.get(id=id)
+    activities = [activity.strip() for activity in adv.activities.split(",")]
 
-  return render(request, 'booking/adventure.html', context)
+    p = Paginator(adv.itinerary_advs.all(), 3)
+    page = request.GET.get('page')
+    itineraries = p.get_page(page)
+    context = {'adventure_url': adventure_url, 'adv': adv, 'activities': activities, 'itineraries': itineraries }
+
+    return render(request, 'booking/adventure.html', context)
 
 def book_adv(request, id):
     authenticated = True

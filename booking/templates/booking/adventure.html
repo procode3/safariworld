@@ -3,12 +3,8 @@
   <div class="w-[35rem] h-[30rem]">
     <div class="bg-[#27576A] text-white flex flex-col h-max pb-4 space-y-4">
       <h2 class="text-[2.5rem] pt-8 mx-8 font-bold">{{ adv.name }}</h2>
-      <p class="mx-8">
-        {{ adv.description }}
-      </p>
-      <p class="mx-8">
-        {{ adv.price }}
-      </p>
+      <p class="mx-8">{{ adv.description }}</p>
+      <p class="mx-8">{{ adv.price }}</p>
       <h3 class="mx-8 text-2xl">Top Activities</h3>
       <ul class="grid mx-8 grid-cols-4 gap-2">
         {% for activity in activities %}
@@ -32,29 +28,42 @@
       </svg>
     </div>
   </div>
-  </div>
-  <div class="bg-[url('/static/{{ adv.image}}')] w-[35rem] h-[30rem] bg-cover bg-center"></div>
+  <div
+    class="bg-[url('/static/{{ adv.image}}')] w-[35rem] h-[30rem] bg-cover bg-center"
+  ></div>
 </section>
 <section class="p-10">
   <h3 class="text-center text-[2.5rem]">Itinerary</h3>
   <div class="flex">
-    <div class="bg-[url('/static/images/leftpng.png')] h-80 w-80 bg-center bg-contain bg-no-repeat">
-      <!-- <img src="/static/images/leftpng.png" my-auto w-20 h-20 alt="left scroll" /> -->
-    </div>
+    {% if itineraries.has_previous %}
+    <a href="?page={{ itineraries.previous_page_number }}"
+      ><div
+        class="bg-[url('/static/images/leftpng.png')] h-80 w-80 bg-center bg-contain bg-no-repeat"
+      ></div
+    ></a>
+    {% endif %}
     <div class="flex justify-between">
       {% for itenary in itineraries %}
       <div class="flex flex-col justify-center text-center max-w-[25%]">
         <h4 class="text-[1.8rem]">{{ itenary.day }}</h4>
-        <div class="bg-[url('/static/{{itenary.image}}')] mx-auto w-56 h-56 bg-cover bg-center rounded-full"></div>
+        <div
+          class="bg-[url('/static/{{itenary.image}}')] mx-auto w-56 h-56 bg-cover bg-center rounded-full"
+        ></div>
         <h5>{{ itenary.name }}</h5>
-      <div class="bg-[url('/static/images/arrow.png')] mx-auto w-[3rem] h-[3rem] bg-center bg-cover"></div>
-        <p class="text-justify">
-         {{itenary.description}}
-        </p>
+        <div
+          class="bg-[url('/static/images/arrow.png')] mx-auto w-[3rem] h-[3rem] bg-center bg-cover"
+        ></div>
+        <p class="text-justify">{{itenary.description}}</p>
       </div>
-     {% endfor %}
+      {% endfor %}
     </div>
-    <div class="bg-[url('/static/images/right.png')] h-80 w-80 bg-center bg-contain bg-no-repeat"></div>
+    {% if itineraries.has_next %}
+    <a href="?page={{ itineraries.next_page_number }}"
+      ><div
+        class="bg-[url('/static/images/right.png')] h-80 w-80 bg-center bg-contain bg-no-repeat"
+      ></div
+    ></a>
+    {% endif %}
   </div>
 </section>
 {% endblock%}
