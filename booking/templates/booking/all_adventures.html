@@ -1,8 +1,8 @@
 {% extends 'booking/base.html' %} {% load static %} {% block content %}
-<section class="md:flex text-white container mx-auto my-24">
-  <div class="w-full sm:w-2/12">
+<section class="md:flex text-white mx-16 md:mx-48 my-12">
+  <div class="w-full sm:w-4/12">
     <h2 class="text-5xl mb-3 font-bold">Adventures</h2>
-    <p class="text-lg whitespace-normal">
+    <p class="text-lg whitespace-normal mb-3">
       There is a wide range of activities such as trekking, rafting, skiing,
       cycling/biking, angling, paragliding, hot-air ballooning and scuba diving,
     </p>
@@ -12,19 +12,68 @@
   >
     {% for adventure in adventures %}
     <div
-      class="bg-[url('/static/{{ adventure.image }}')] w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/4 h-96 bg-center bg-cover text-center pt-48"
+      class="bg-[url('/static/{{ adventure.image }}')] w-full md:w-1/3 lg:w-1/4 xl:w-1/4 h-96 bg-center bg-cover text-center pt-24 group hover:scale-110"
     >
-      <p>{{ adventure.name}}</p>
-      <p>Price: Ksh. {{ adventure.price}}</p>
-      <p>{{ adventure.slots}} slots remaining</p>
-      <a href="{% url 'adventure' adventure.id %}">Open</a>
+      <p class="font-bold text-2xl">{{ adventure.name}}</p>
+      <small>Price: Ksh. {{ adventure.price}}</small>
+      <span
+        class="block mx-auto my-2 rounded-full bg-blue-500 w-12 h-12 flex items-center justify-center"
+        >{{ adventure.slots}}
+      </span>
+      <p>slots remaining</p>
+      <a
+        href="{% url 'adventure' adventure.id %}"
+        class="flex mx-auto items-center bg-red-600 mt-10 p-4 px-8 max-w-fit rounded-full opacity-0 group-hover:opacity-100"
+        >Open</a
+      >
     </div>
     {% endfor %}
-    <div>
+    <div class="flex justify-center basis-full">
       {% if adventures.has_previous %}
-      <a href="?page={{ adventures.previous_page_number }}">&laquo Prev</a>
+      <div
+        class="flex items-center bg-red-600 py-4 my-4 px-8 max-w-fit md:translate-x-[80%]"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 20 20"
+          fill="currentColor"
+          class="w-5 h-5 text-white"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M17 10a.75.75 0 01-.75.75H5.612l4.158 3.96a.75.75 0 11-1.04 1.08l-5.5-5.25a.75.75 0 010-1.08l5.5-5.25a.75.75 0 111.04 1.08L5.612 9.25H16.25A.75.75 0 0117 10z"
+            clip-rule="evenodd"
+          />
+        </svg>
+
+        <a
+          href="?page={{ adventures.previous_page_number }}"
+          class="pl-2 text-white"
+          >Prev</a
+        >
+      </div>
       {% endif %} {% if adventures.has_next %}
-      <a href="?page={{ adventures.next_page_number }}">&raquo Next</a>
+      <div
+        class="flex items-center bg-red-600 py-4 my-4 px-8 max-w-fit md:translate-x-[235%]"
+      >
+        <a
+          href="?page={{ adventures.next_page_number }}"
+          class="pr-2 text-white"
+          >Next</a
+        >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 20 20"
+          fill="currentColor"
+          class="w-5 h-5 text-white"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z"
+            clip-rule="evenodd"
+          />
+        </svg>
+      </div>
       {% endif %}
     </div>
   </div>

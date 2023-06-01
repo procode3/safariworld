@@ -3,12 +3,14 @@
   <div class="w-[35rem] h-[30rem]">
     <div class="bg-[#27576A] text-white flex flex-col h-max pb-4 space-y-4">
       <h2 class="text-[2.5rem] pt-8 mx-8 font-bold">{{ adv.name }}</h2>
-      <p class="mx-8">{{ adv.description }}</p>
-      <p class="mx-8">{{ adv.price }}</p>
+      <p class="mx-8">{{ adv.description }}...</p>
+      <p class="mx-8 flex items-center bg-red-600 py-4 my-4 px-8 max-w-fit">
+        Ksh.{{ adv.price }}
+      </p>
       <h3 class="mx-8 text-2xl">Top Activities</h3>
-      <ul class="grid mx-8 grid-cols-4 gap-2">
+      <ul class="grid mx-8 grid-cols-3 gap-2">
         {% for activity in activities %}
-        <li class="bg-[#000000] px-2 mx-auto">{{ activity }}</li>
+        <li class="bg-[#000000] p-4 text-center block">{{ activity }}</li>
         {% endfor %}
       </ul>
     </div>
@@ -38,7 +40,7 @@
     {% if itineraries.has_previous %}
     <a href="?page={{ itineraries.previous_page_number }}"
       ><div
-        class="bg-[url('/static/images/leftpng.png')] h-80 w-80 bg-center bg-contain bg-no-repeat"
+        class="bg-[url('/static/images/leftpng.png')] h-10 w-10 bg-center bg-contain bg-no-repeat translate-y-24"
       ></div
     ></a>
     {% endif %}
@@ -60,7 +62,7 @@
     {% if itineraries.has_next %}
     <a href="?page={{ itineraries.next_page_number }}"
       ><div
-        class="bg-[url('/static/images/right.png')] h-80 w-80 bg-center bg-contain bg-no-repeat"
+        class="bg-[url('/static/images/right.png')] h-10 w-10 bg-center bg-contain bg-no-repeat translate-y-24"
       ></div
     ></a>
     {% endif %}
