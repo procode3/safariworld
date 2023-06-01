@@ -2,26 +2,18 @@
 <section class="flex w-full px-10 h-max pt-10 justify-between">
   <div class="w-[35rem] h-[30rem]">
     <div class="bg-[#27576A] text-white flex flex-col h-max pb-4 space-y-4">
-      <h2 class="text-[2.5rem] pt-8 mx-8 font-bold">Samburu Glamping</h2>
+      <h2 class="text-[2.5rem] pt-8 mx-8 font-bold">{{ adv.name }}</h2>
       <p class="mx-8">
-        Samburu Glamping offers a remarkable fusion of luxury and adventure in
-        the heart of Kenya's captivating Samburu National Reserve. Nestled
-        amidst the breathtaking landscapes, this unique glamping experience
-        combines the comforts of a lavish resort with the authenticity of the
-        African wilderness. With stylishly designed, spacious tents featuring
-        modern amenities, guests can indulge in the perfect blend of opulence
-        and nature
+        {{ adv.description }}
+      </p>
+      <p class="mx-8">
+        {{ adv.price }}
       </p>
       <h3 class="mx-8 text-2xl">Top Activities</h3>
       <ul class="grid mx-8 grid-cols-4 gap-2">
-        <li class="bg-[#000000] px-2 mx-auto">Swimming</li>
-        <li class="bg-[#000000] px-2 mx-auto">Hiking</li>
-        <li class="bg-[#000000] px-2 mx-auto">Sky diving</li>
-        <li class="bg-[#000000] px-2 mx-auto">National Park</li>
-        <li class="bg-[#000000] px-2 mx-auto">Swimming</li>
-        <li class="bg-[#000000] px-2 mx-auto">Hiking</li>
-        <li class="bg-[#000000] px-2 mx-auto">Sky diving</li>
-        <li class="bg-[#000000] px-2 mx-auto">National Park</li>
+        {% for activity in activities %}
+        <li class="bg-[#000000] px-2 mx-auto">{{ activity }}</li>
+        {% endfor %}
       </ul>
     </div>
     <div class="flex items-center bg-red-600 py-4 my-4 px-8 max-w-fit">
@@ -41,7 +33,7 @@
     </div>
   </div>
   </div>
-  <div class="bg-cyan-400 bg-center bg-cover w-[35rem] h-[30rem]"></div>
+  <div class="bg-[url('/static/{{ adv.image}}')] w-[35rem] h-[30rem] bg-cover bg-center"></div>
 </section>
 <section class="p-10">
   <h3 class="text-center text-[2.5rem]">Itinerary</h3>
@@ -50,51 +42,17 @@
       <!-- <img src="/static/images/leftpng.png" my-auto w-20 h-20 alt="left scroll" /> -->
     </div>
     <div class="flex justify-between">
+      {% for itenary in itineraries %}
       <div class="flex flex-col justify-center text-center max-w-[25%]">
-        <h4 class="text-[1.8rem]">June 06</h4>
-        <div class="bg-[url('/static/images/air.jpeg')] mx-auto w-56 h-56 bg-cover bg-center rounded-full"></div>
-        <h5>Arrival</h5>
+        <h4 class="text-[1.8rem]">{{ itenary.day }}</h4>
+        <div class="bg-[url('/static/{{itenary.image}}')] mx-auto w-56 h-56 bg-cover bg-center rounded-full"></div>
+        <h5>{{ itenary.name }}</h5>
       <div class="bg-[url('/static/images/arrow.png')] mx-auto w-[3rem] h-[3rem] bg-center bg-cover"></div>
         <p class="text-justify">
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ex itaque
-          ratione sequi ad? Aliquid sed necessitatibus officia quod quidem?
-          Tempora possimus dignissimos, aliquam aperiam ad libero? Odit facilis
-          voluptates sint. Deleniti laborum velit veritatis laboriosam, ipsam
-          eius a aut, quod harum animi iure nulla quam officia recusandae labore
-          delectus quisquam cupiditate perferendis, nobis dolor hic maiores
-          ullam cumque tempore. Laudantium.
+         {{itenary.description}}
         </p>
       </div>
-      <div class="flex flex-col justify-center text-center max-w-[25%]">
-        <h4 class="text-[1.8rem]">June 06</h4>
-        <div class="bg-[url('/static/images/person.jpeg')] mx-auto  w-56 h-56 bg-cover bg-center rounded-full"></div>
-        <h5>Arrival</h5>
-       <div class="bg-[url('/static/images/arrow.png')] mx-auto w-[3rem] h-[3rem] bg-center bg-cover"></div>
-        <p class="text-justify">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam
-          placeat doloremque vero asperiores, similique dicta ad dolore sapiente
-          deleniti hic assumenda maiores in. Earum voluptate cum deserunt, iusto
-          necessitatibus modi. Porro nam ipsam magni consequuntur, aspernatur,
-          hic possimus deleniti officiis facilis, quae et eos. Illum ab
-          dignissimos eum id quaerat quae sed, error deleniti nesciunt amet ut
-          totam pariatur enim.
-        </p>
-      </div>
-      <div class="flex flex-col justify-center text-center max-w-[25%]">
-        <h4 class="text-[1.8rem]">June 06</h4>
-        <div class="bg-[url('/static/images/elephant.jpg')] mx-auto w-56 h-56 bg-cover bg-center rounded-full"></div>
-        <h5>Arrival</h5>
-      <div class="bg-[url('/static/images/arrow.png')] mx-auto w-[3rem] h-[3rem] bg-center bg-cover"></div>
-        <p class="text-justify">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam
-          nemo magni illo! Molestiae omnis dolores delectus nemo cum expedita
-          inventore reiciendis harum. Quod veniam, totam necessitatibus ipsam
-          ipsum culpa enim. Eum totam adipisci unde est, iusto obcaecati ratione
-          amet ipsa, quod aliquam rerum ut voluptates. Unde sapiente ad commodi
-          sequi error laudantium architecto obcaecati rerum, repellendus, enim,
-          excepturi aliquid quasi.
-        </p>
-      </div>
+     {% endfor %}
     </div>
     <div class="bg-[url('/static/images/right.png')] h-80 w-80 bg-center bg-contain bg-no-repeat"></div>
   </div>

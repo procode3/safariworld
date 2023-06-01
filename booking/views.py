@@ -18,8 +18,13 @@ def adventures(request):
 
 def adv_details(request, id):
   adventure_url = reverse('adventure', args=[id])
+  adv = Adventure.objects.get(id=id)
+  activities = [activity.strip() for activity in adv.activities.split(",")]
+  itineraries = adv.itinerary_advs.all()[:3]
+  print(itineraries[0].image)
+  context = {'adventure_url': adventure_url, 'adv': adv, 'activities': activities, 'itineraries': itineraries }
 
-  return render(request, 'booking/adventure.html', {'adventure_url': adventure_url})
+  return render(request, 'booking/adventure.html', context)
 
 def book_adv(request, id):
     authenticated = True
