@@ -28,7 +28,7 @@
             <th
               class="px-10 py-2 bg-transparent text-left text-l font-medium tracking-wider"
             >
-              Date
+              Departure Date
             </th>
             <th
               class="px-10 py-2 bg-transparent text-left text-l font-medium tracking-wider"
@@ -39,28 +39,30 @@
         </thead>
         <tbody class="" style="background-color: #bcd3dc">
           <tr>
-            <td class="px-10 py-4 whitespace-nowrap">Samburu Glamping</td>
+            <td id="adventure" class="px-10 py-4 whitespace-nowrap">{{ adventure.name }}</td>
             <td class="px-10 py-4 whitespace-nowrap">
-              <span>Ksh.</span>1,000<span>/=</span>
+              <span>Ksh.</span><span id="price">{{ adventure.price }}<span>/=</span>
             </td>
             <td class="px-10 py-4 whitespace-nowrap">
               <button
                 type="button"
                 class="bg-red-500 px-2 text-center text-white"
+                id="minus"
               >
                 -
               </button>
-              <span>0</span>
+              <span id="quantity">1</span>
               <button
                 type="button"
                 class="bg-red-500 px-2 text-center text-white"
+                id="plus"
               >
                 +
               </button>
             </td>
-            <td class="px-10 py-4 whitespace-nowrap">06/06/2023</td>
+            <td class="px-10 py-4 whitespace-nowrap"> {{ adventure.departure_date }} </td>
             <td class="px-10 py-4 whitespace-nowrap">
-              <span>Ksh.</span>0<span>/=</span>
+              <span>Ksh.</span><span id="total">{{ adventure.price }}</span><span>/=</span>
             </td>
             <td class="px-10 py-4 whitespace-nowrap"></td>
           </tr>
@@ -106,9 +108,90 @@
       />
       <a class="bg-red-600 text-white font-xl p-2" href="#">Pay</a>
     </div>
-    <a class="bg-red-600 text-white font-xl p-2 font-bold" href="#"
+    <a id="confirm" class="bg-red-600 text-white font-xl p-2 font-bold"
       >Complete Order</a
     >
+     <div id="id" hidden>
+       {{ adventure.id }}
+     </div>
+    <div id="details"> </div>
   </div>
 </section>
+<script>
+    document.getElementById("minus").addEventListener("click", function() {
+        const peopleElement = document.getElementById("quantity");
+        if (parseInt(peopleElement.textContent) > 1) {
+          const currentPeople = parseInt(peopleElement.textContent);
+          // Perform any desired calculations or modifications to the current amount
+          const newPeople = currentPeople - 1; 
+          console.log(newPeople);
+          peopleElement.textContent = newPeople;
+          const amountElement = document.getElementById("price");
+          const totalElement = document.getElementById("total");
+          const newTotal = parseInt(amountElement.textContent) * newPeople;
+          totalElement.textContent = newTotal;
+		}
+    });
+
+	document.getElementById("plus").addEventListener("click", function() {
+        const peopleElement = document.getElementById("quantity");
+        if (parseInt(peopleElement.textContent) >= 1) {
+          const currentPeople = parseInt(peopleElement.textContent);
+          // Perform any desired calculations or modifications to the current amount
+          const newPeople = currentPeople + 1;
+          peopleElement.textContent = newPeople;
+          const amountElement1 = document.getElementById("price");
+          const totalElement1 = document.getElementById("total"); 
+          const newTotal = parseInt(amountElement1.textContent) * newPeople;
+          totalElement1.textContent = newTotal;
+        }
+    });
+    
+    document.getElementById("confirm").addEventListener("click", function() {
+       console.log("Ordering...");
+       const message = `Your payment for ${document.getElementById("adventure").textContent} adventure has been received. Thank you for exploring the world with us. Check details about the booking in your email and profile!!`;
+       const elem = document.createElement("span")
+       elem.textContent = message;
+       const divElement = document.getElementById("details")
+       divElement.appendChild(elem);
+       console.log(message);
+       elem.classList.add("mx-auto");
+       divElement.classList.add("text-[#0A3504]", "pt-4", "w-2/3", "h-auto");
+      
+       const id = document.getElementById("id").textContent.trim()
+       const url = `http://localhost:8000/${id}/order`;
+       console.log(url);
+       const data = {
+         "count": document.getElementById("quantity").textContent, 
+       }
+       
+       console.log(data);
+
+
+       function getCookie(name) {
+         const cookieValue = document.cookie.match(`(^|;)\\s*${name}\\s*=\\s*([^;]+)`);
+         return cookieValue ? cookieValue[2] : null;
+       }
+
+       fetch(url, {
+       method: "POST",
+       headers: {
+       "Content-Type": "application/json",
+       "X-CSRFToken": getCookie("csrftoken"),
+       },
+       body: JSON.stringify(data),
+       })
+       .then(data => {
+       // Handle response data
+         console.log(data);
+       })
+      .catch(error => {
+      // Handle error
+        console.error(error);
+      }); 
+
+    });
+
+</script>
+
 {% endblock %}

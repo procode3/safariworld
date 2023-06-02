@@ -58,7 +58,7 @@
         <input type="hidden" name="next" value="{{ request.GET.next }}" />
         <div>
           <span>Don't have an account?</span>
-          <a href="{% url 'signup' %}" class="underline">Signup</a>
+          <a href="{% url 'signup' %}?next={{ request.GET.next }}" class="underline">Signup</a>
         </div>
       </form>
     </section>

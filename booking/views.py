@@ -5,6 +5,8 @@ from django.contrib.auth import authenticate, login, logout
 from .models import Adventure
 from django.urls import reverse
 from django.core.paginator import Paginator
+from django.contrib.auth.decorators import login_required
+import re
 
 
 def index(request):
@@ -13,7 +15,7 @@ def index(request):
     return render(request, 'booking/index.html', context)
 
 def adventures(request):
-    p = Paginator(Adventure.objects.all(), 2)
+    p = Paginator(Adventure.objects.all(), 4)
     page = request.GET.get('page')
     adventures = p.get_page(page)
     context = {"adventures": adventures}
@@ -39,8 +41,12 @@ def book_adv(request, id):
     else:
         return redirect('/login')
 
+@login_required
 def order_page(request, id):
-    return render(request, 'booking/order.html') 
+    adventure = Adventure.objects.get(id=id)
+    context = {'adventure': adventure}
+
+    return render(request, 'booking/order.html', context) 
 
 def login_page(request):
     if request.method == 'POST':
@@ -59,6 +65,9 @@ def login_page(request):
 def logout_page(request):
     next = request.GET.get('next', '/')
     logout(request)
+    pattern = r'/.*/order'
+    if re.match(pattern, next):
+        next = '/'
     return HttpResponseRedirect(next)
 
 def signup_page(request):
@@ -73,6 +82,6 @@ def signup_page(request):
         else:
             print('Error submitting')
     context = {
-                'form': form
+                'form': form,
             }
     return render(request, 'booking/signup.html', context)      
