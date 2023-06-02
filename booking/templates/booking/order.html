@@ -114,7 +114,7 @@
      <div id="id" hidden>
        {{ adventure.id }}
      </div>
-    <div id="details"> </div>
+     <dialog id="msgElement" close> </dialog>
   </div>
 </section>
 <script>
@@ -146,18 +146,15 @@
           totalElement1.textContent = newTotal;
         }
     });
-    
     document.getElementById("confirm").addEventListener("click", function() {
        console.log("Ordering...");
        const message = `Your payment for ${document.getElementById("adventure").textContent} adventure has been received. Thank you for exploring the world with us. Check details about the booking in your email and profile!!`;
-       const elem = document.createElement("span")
+       const elem = document.getElementById("msgElement")
        elem.textContent = message;
-       const divElement = document.getElementById("details")
-       divElement.appendChild(elem);
        console.log(message);
-       elem.classList.add("mx-auto");
-       divElement.classList.add("text-[#0A3504]", "pt-4", "w-2/3", "h-auto");
-      
+       elem.classList.add("mx-auto", "text-[#0A3504]");
+       elem.open = true;
+       
        const id = document.getElementById("id").textContent.trim()
        const url = `http://localhost:8000/${id}/order`;
        console.log(url);
@@ -188,7 +185,7 @@
       .catch(error => {
       // Handle error
         console.error(error);
-      }); 
+      });
 
     });
 
