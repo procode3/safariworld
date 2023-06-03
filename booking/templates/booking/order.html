@@ -100,9 +100,9 @@
     </ol>
     <div class="my-4 text-lg font-bold">
       <label for="tel">Enter Phone Number: </label>
-      <span class="bg-blue-300 p-2 text-white">+254</span>
+      <span class="bg-blue-300 p-2 text-black">+254</span>
       <input
-        class="bg-blue-300 p-1 text-white focus:outline-none"
+        class="bg-blue-300 p-1 text-[#000000] focus:outline-none"
         type="text"
         id="tel"
       />
@@ -114,7 +114,9 @@
      <div id="id" hidden>
        {{ adventure.id }}
      </div>
-     <dialog id="msgElement" close> </dialog>
+     <dialog id="msgElement" close class="bg-cyan-400 my-4 mx-auto text-[#0A3504] top-[30vh] translate-y-1/2 w-96"> 
+		
+	</dialog>
   </div>
 </section>
 <script>
@@ -152,14 +154,14 @@
        const elem = document.getElementById("msgElement")
        elem.textContent = message;
        console.log(message);
-       elem.classList.add("mx-auto", "text-[#0A3504]");
-       elem.open = true;
+       elem.showModal();
        
        const id = document.getElementById("id").textContent.trim()
        const url = `http://localhost:8000/${id}/order`;
        console.log(url);
        const data = {
-         "count": document.getElementById("quantity").textContent, 
+         "count": document.getElementById("quantity").textContent,
+         "phone": "254707819550"
        }
        
        console.log(data);
@@ -176,7 +178,7 @@
        "Content-Type": "application/json",
        "X-CSRFToken": getCookie("csrftoken"),
        },
-       body: JSON.stringify(data),
+       body: {"counts": 5},
        })
        .then(data => {
        // Handle response data
