@@ -134,3 +134,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'booking.User'
 
 LOGIN_URL = "/login"
+
+# Renenber Me Functionality
+SESSION_COOKIE_AGE = 30 * 24 * 60 * 60

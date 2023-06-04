@@ -7,6 +7,7 @@ from django.urls import reverse
 from django.core.paginator import Paginator
 from django.contrib.auth.decorators import login_required
 import re
+from django.conf import settings
 
 
 def index(request):
@@ -52,14 +53,17 @@ def login_page(request):
     if request.method == 'POST':
         username = request.POST.get('username')
         password = request.POST.get('password')
+        remember_me = request.POST.get('remember')
 
-        user = authenticate(username=username, password=password)
+        user = authenticate(request, username=username, password=password)
         next = request.POST.get('next', '/')
         if user is not None:
             login(request, user)
+
+            if remember_me:
+                request.session.set_expiry(settings.SESSION_COOKIE_AGE)
             return HttpResponseRedirect(next)
 
-    print('Error login')
     return render(request, 'booking/login.html')
 
 def logout_page(request):
