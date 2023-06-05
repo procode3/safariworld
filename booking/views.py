@@ -16,7 +16,7 @@ def index(request):
     return render(request, 'booking/index.html', context)
 
 def adventures(request):
-    p = Paginator(Adventure.objects.all(), 4)
+    p = Paginator(Adventure.objects.all(), 3)
     page = request.GET.get('page')
     adventures = p.get_page(page)
     context = {"adventures": adventures}

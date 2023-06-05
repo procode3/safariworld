@@ -6,16 +6,16 @@
 </div>
 {% endblock %} {% block content %}
 <section class="text-white">
-  <h3 class="text-center my-8 font-bold text-2xl">Trending Trips</h3>
+  <h3 class="my-8 text-2xl font-bold text-center">Trending Trips</h3>
   <div class="flex justify-center space-x-8">
     {% for adventure in adventures %}
     <div
-      class="bg-[url('/static/{{adventure.image}}')] w-56 h-80 bg-center bg-cover text-center pt-36 transition ease-in-out delay-150 hover:scale-125 transition-transform duration-300"
+      class="bg-[url('/static/{{adventure.image}}')] w-56 h-80 bg-center bg-cover text-center pt-36 ease-in-out delay-150 hover:scale-125 transition-transform duration-300"
     >
-      <h4 class="font-bold text-sm">{{ adventure.name }}</h4>
-      <p class="text-gray-100 text-xs">{{ adventure.place_id.name }}</p>
+      <h4 class="text-sm font-bold">{{ adventure.name }}</h4>
+      <p class="text-xs text-gray-100">{{ adventure.place_id.name }}</p>
       <span
-        class="block mx-auto my-4 rounded-full bg-blue-500 w-12 h-12 flex items-center justify-center"
+        class="flex items-center justify-center w-12 h-12 mx-auto my-4 bg-blue-500 rounded-full"
         >{{ adventure.slots }}</span
       >
       <p class="text-center">slots remaining.</p>
@@ -23,7 +23,7 @@
     {% endfor %}
   </div>
 </section>
-<section class="md:flex flex-column md:mx-auto pt-20 md:items-center mt-20">
+<section class="pt-20 mt-20 md:flex flex-column md:mx-auto md:items-center">
   <div class="flex-1 mx-auto px-28">
     <h3 class="pt-8 text-2xl font-bold">Book A Private Getaway</h3>
     <p class="py-4">
@@ -34,7 +34,7 @@
       included in our adventures? Worry not! You can have a one on one
       consultation with us and provide a private getaway for you.
     </p>
-    <div class="flex items-center bg-red-600 py-4 px-8 max-w-fit">
+    <div class="flex items-center px-8 py-4 bg-red-600 max-w-fit">
       <a href="#" class="pr-2 text-white">Consult </a>
       <svg
         xmlns="http://www.w3.org/2000/svg"
