@@ -1,3 +1,5 @@
+{% load static tailwind_tags %}
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -11,6 +13,7 @@
       href="https://fonts.googleapis.com/css?family=Poppins"
       rel="stylesheet"
     />
+    <!-- {% tailwind_css %} -->
     <style>
       body {
         font-family: "Poppins" !important;
@@ -22,11 +25,11 @@
   >
     {%block img %} {% endblock %}
     <header
-      class="md:flex items-center justify-between py-4 border border-gray-100 text-white"
+      class="items-center justify-between py-4 text-white border border-gray-100 md:flex"
     >
       <div class="flex items-center">
         <h4
-          class="text-white font-weight-600 text-xl px-4 md:px-6 border-r border-gray-200"
+          class="px-4 text-xl text-white border-r border-gray-200 font-weight-600 md:px-6"
         >
           Safari<span style="color: #00f3ff">World</span>
         </h4>
@@ -34,7 +37,7 @@
           <input
             type="text"
             placeholder="Search For The Trip or Destination"
-            class="mx-4 p-2 focus:outline-none text-white-300 bg-transparent w-100"
+            class="p-2 mx-4 bg-transparent focus:outline-none text-white-300 w-100"
           />
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -51,7 +54,7 @@
         </div>
       </div>
       <div class="flex space-x-4">
-        <div class="flex space-x-4 mx-2">
+        <div class="flex mx-2 space-x-4">
           <div class="flex item-center">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -83,7 +86,7 @@
       </div>
     </header>
 
-    <nav class="flex md:justify-center my-5 text-white">
+    <nav class="flex my-5 text-white md:justify-center">
       <ul class="md:flex">
         <li class="px-8 md:px-16"><a href="{% url 'home' %}">Home</a></li>
         <li class="px-8 md:px-16">
@@ -94,11 +97,11 @@
       </ul>
     </nav>
     <section>
-      <h1 class="text-center text-white font-bold text-5xl py-10">
+      <h1 class="py-10 text-5xl font-bold text-center text-white">
         Explore The World With Ease
       </h1>
       <div
-        class="flex mx-auto items-center bg-red-600 py-4 px-8 max-w-fit rounded-full"
+        class="flex items-center px-8 py-4 mx-auto bg-red-600 rounded-full max-w-fit"
       >
         <a href="{% url 'adventures' %}" class="pr-2 text-white"
           >Discover Top Destinations
@@ -124,16 +127,16 @@
       class="md:flex bg-[#357B95] h-full justify-around items-center px-8 md:px-1 py-4 text-white mt-20"
     >
       <div class="flex">
-        <div class="w-10 h-10 p-3 rounded-full bg-red-600"></div>
+        <div class="w-10 h-10 p-3 bg-red-600 rounded-full"></div>
         <div
-          class="w-10 h-10 p-3 rounded-full bg-blue-300 -translate-x-6"
+          class="w-10 h-10 p-3 -translate-x-6 bg-blue-300 rounded-full"
         ></div>
         <div
-          class="w-10 h-10 p-3 rounded-full bg-red-600 -translate-x-12"
+          class="w-10 h-10 p-3 -translate-x-12 bg-red-600 rounded-full"
         ></div>
       </div>
       <div>
-        <h4 class="mb-3 text-lg md:text-center font-bold">Adventures</h4>
+        <h4 class="mb-3 text-lg font-bold md:text-center">Adventures</h4>
         <ul>
           <li
             class="pl-4 before:content-['>'] before:mr-3 before:text-red-800 before:font-bold"
@@ -153,7 +156,7 @@
         </ul>
       </div>
       <div>
-        <h4 class="mb-3 text-lg md:text-center font-bold">About Us</h4>
+        <h4 class="mb-3 text-lg font-bold md:text-center">About Us</h4>
         <ul>
           <li
             class="pl-4 before:content-['>'] before:mr-3 before:text-red-800 before:font-bold"
@@ -168,10 +171,10 @@
         </ul>
       </div>
       <div>
-        <h4 class="mb-3 text-lg md:text-center font-bold">Contact Us</h4>
+        <h4 class="mb-3 text-lg font-bold md:text-center">Contact Us</h4>
         <div class="flex item-center gap-x-2">
           <svg
-            class="h-8 w-8 text-white-300"
+            class="w-8 h-8 text-white-300"
             viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
@@ -184,7 +187,7 @@
             />
           </svg>
           <svg
-            class="h-8 w-8 text-white"
+            class="w-8 h-8 text-white"
             width="24"
             height="24"
             viewBox="0 0 24 24"
@@ -200,7 +203,7 @@
             <line x1="16.5" y1="7.5" x2="16.5" y2="7.501" />
           </svg>
           <svg
-            class="h-8 w-8 text-white"
+            class="w-8 h-8 text-white"
             viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
@@ -213,7 +216,7 @@
             />
           </svg>
           <svg
-            class="h-8 w-8 text-white"
+            class="w-8 h-8 text-white"
             width="24"
             height="24"
             viewBox="0 0 24 24"
