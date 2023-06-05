@@ -1,29 +1,29 @@
 {% extends 'booking/base.html' %} {% load static %} {% block content %}
-<section class="md:flex text-white mx-16 md:mx-48 my-12">
+<section class="mx-16 my-12 text-white md:flex md:mx-48">
   <div class="w-full sm:w-4/12">
-    <h2 class="text-5xl mb-3 font-bold">Adventures</h2>
-    <p class="text-lg whitespace-normal mb-3">
+    <h2 class="mb-3 text-5xl font-bold">Adventures</h2>
+    <p class="mb-3 text-lg whitespace-normal">
       There is a wide range of activities such as trekking, rafting, skiing,
       cycling/biking, angling, paragliding, hot-air ballooning and scuba diving,
     </p>
   </div>
   <div
-    class="flex flex-wrap justify-end items-end space-x-4 space-y-4 w-full sm:w-10/12 px-auto mx-auto"
+    class="flex flex-wrap items-end justify-end w-full mx-auto space-x-4 space-y-4 sm:w-10/12 px-auto"
   >
     {% for adventure in adventures %}
     <div
       class="bg-[url('/static/{{ adventure.image }}')] w-full md:w-1/3 lg:w-52 xl:w-60 h-96 bg-center bg-cover text-center pt-24 group transition ease-in-out delay-150 hover:scale-105"
     >
-      <p class="font-bold text-2xl">{{ adventure.name}}</p>
+      <p class="text-2xl font-bold">{{ adventure.name}}</p>
       <small>Price: Ksh. {{ adventure.price}}</small>
       <span
-        class="block mx-auto my-2 rounded-full bg-blue-500 w-12 h-12 flex items-center justify-center"
+        class="flex items-center justify-center w-12 h-12 mx-auto my-2 bg-blue-500 rounded-full"
         >{{ adventure.slots}}
       </span>
       <p>slots remaining</p>
       <a
         href="{% url 'adventure' adventure.id %}"
-        class="flex mx-auto items-center bg-red-600 mt-10 p-4 px-8 max-w-fit rounded-full transition ease-in-out delay-150 opacity-0 group-hover:opacity-100"
+        class="flex items-center p-4 px-8 mx-auto mt-10 transition ease-in-out delay-150 bg-red-600 rounded-full opacity-0 max-w-fit group-hover:opacity-100"
         >Open</a
       >
     </div>

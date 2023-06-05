@@ -8,20 +8,20 @@
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
   <body
-    class="flex justify-center items-center min-h-screen bg-gradient-to-b from-blue-800 to-transparent bg-no-repeat bg-cover font-serif"
+    class="flex items-center justify-center min-h-screen font-serif bg-no-repeat bg-cover bg-gradient-to-b from-blue-800 to-transparent"
   >
     <section
-      class="md:w-1/3 p-10 my-auto rounded text-white"
+      class="p-10 my-auto text-white rounded md:w-1/3"
       style="background-color: #357b95"
     >
-      <h1 class="text-4xl text-center mb-4">Log In To Book</h1>
+      <h1 class="mb-4 text-4xl text-center">Log In To Book</h1>
       <form method="POST" class="flex-col items-center">
         {% csrf_token %}
-        <div class="my-3 flex flex-col justify-between">
+        <div class="flex flex-col justify-between my-3">
           <label for="username">Username</label>
           <input type="text" id="username" name="username" class="text-black" />
         </div>
-        <div class="my-3 flex flex-col justify-between">
+        <div class="flex flex-col justify-between my-3">
           <label for="passwd">Password</label>
           <input
             type="password"
@@ -30,7 +30,7 @@
             class="text-black"
           />
         </div>
-        <div class="my-3 flex justify-between">
+        <div class="flex justify-between my-3">
           <div>
             <input type="checkbox" name="remember" id="remember" />
             <label for="remember">Remember Me</label>
@@ -39,7 +39,7 @@
           <a href="#">Forgot password?</a>
         </div>
         <div
-          class="flex bg-red-600 py-4 px-8 max-w-screen text-center justify-center items-center"
+          class="flex items-center justify-center px-8 py-4 text-center bg-red-600 max-w-screen"
         >
           <input type="submit" class="pr-2 text-white" value="Login" />
           <svg
@@ -58,7 +58,11 @@
         <input type="hidden" name="next" value="{{ request.GET.next }}" />
         <div>
           <span>Don't have an account?</span>
-          <a href="{% url 'signup' %}?next={{ request.GET.next }}" class="underline">Signup</a>
+          <a
+            href="{% url 'signup' %}?next={{ request.GET.next }}"
+            class="underline"
+            >Signup</a
+          >
         </div>
       </form>
     </section>
