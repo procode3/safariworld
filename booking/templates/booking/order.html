@@ -114,6 +114,9 @@
      <div id="id" hidden>
        {{ adventure.id }}
      </div>
+      <div id="slots" hidden>
+       {{ adventure.slots }}
+     </div>
      <dialog id="msgElement" close class="bg-cyan-400 my-4 mx-auto text-[#0A3504] top-[30vh] translate-y-1/2 w-96"> 
 		
 	</dialog>
@@ -122,6 +125,7 @@
 <script>
     document.getElementById("minus").addEventListener("click", function() {
         const peopleElement = document.getElementById("quantity");
+        let slots = parseInt(document.getElementById('slots').textContent);
         if (parseInt(peopleElement.textContent) > 1) {
           const currentPeople = parseInt(peopleElement.textContent);
           // Perform any desired calculations or modifications to the current amount
@@ -132,12 +136,16 @@
           const totalElement = document.getElementById("total");
           const newTotal = parseInt(amountElement.textContent) * newPeople;
           totalElement.textContent = newTotal;
+          slots += 1;
+          document.getElementById('slots').textContent = slots;
+          
 		}
     });
 
 	document.getElementById("plus").addEventListener("click", function() {
         const peopleElement = document.getElementById("quantity");
-        if (parseInt(peopleElement.textContent) >= 1) {
+        let slots = parseInt(document.getElementById('slots').textContent);
+        if (parseInt(peopleElement.textContent) >= 1 && slots > 1) {
           const currentPeople = parseInt(peopleElement.textContent);
           // Perform any desired calculations or modifications to the current amount
           const newPeople = currentPeople + 1;
@@ -146,6 +154,8 @@
           const totalElement1 = document.getElementById("total"); 
           const newTotal = parseInt(amountElement1.textContent) * newPeople;
           totalElement1.textContent = newTotal;
+          slots -= 1;
+          document.getElementById('slots').textContent = slots;
         }
     });
     document.getElementById("confirm").addEventListener("click", function() {
@@ -160,6 +170,7 @@
        const url = `http://localhost:8000/${id}/order`;
        console.log(url);
        const data = {
+         "id": id,
          "count": document.getElementById("quantity").textContent,
          "phone": "254707819550"
        }
@@ -178,7 +189,7 @@
        "Content-Type": "application/json",
        "X-CSRFToken": getCookie("csrftoken"),
        },
-       body: {"counts": 5},
+       body: JSON.stringify(data),
        })
        .then(data => {
        // Handle response data
