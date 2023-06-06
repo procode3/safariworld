@@ -124,16 +124,16 @@ a {
   padding: 20px;
 }
 
-.team-img {
-  width: 100%;
-  height: auto;
+/* .team-img {
+  width: auto;
+  height: 70%;
   display: flex;
   justify-content: center;
   background-color: #f9f9f9;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-  object-fit: cover;
+  /* object-fit: cover;
   object-position: center;
-}
+} */
 
 .team-img img {
   width: 100%;
