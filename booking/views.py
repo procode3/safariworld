@@ -2,13 +2,13 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponseRedirect
 from .forms import SignUpForm
 from django.contrib.auth import authenticate, login, logout
-from .models import Adventure
+from .models import Adventure, Booking, User
 from django.urls import reverse
 from django.core.paginator import Paginator
 from django.contrib.auth.decorators import login_required
 import re
 from django.conf import settings
-
+import json
 
 def index(request):
     adventures = Adventure.objects.order_by('departure_date')[:4]
@@ -44,6 +44,27 @@ def book_adv(request, id):
 
 @login_required
 def order_page(request, id):
+    print(f'user in both methods: {request.user}')
+    adventure = Adventure.objects.get(id=id)
+    if request.method == 'POST':
+        obj = json.loads(request.body)
+        slots = adventure.slots
+        remaining_slots = slots - int(obj.get('count'))
+        adventure.slots = remaining_slots
+        print(f'User in POST: {request.user.id}')
+        adventure.save()
+        user = User.objects.get(id=request.user.id)
+        booking_kwargs = {
+            'user_id': user,
+            'adventure_id': adventure,
+            'number_of_persons': int(obj.get('count')),
+            'amount_paid': adventure.price*int(obj.get('count')),
+            'is_confirmed': True
+            }
+        booking = Booking(**booking_kwargs)
+        booking.save()
+        
+        
     adventure = Adventure.objects.get(id=id)
     context = {'adventure': adventure}
 

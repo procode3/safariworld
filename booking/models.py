@@ -129,7 +129,7 @@ class Booking(BaseModel):
     adventure_id = models.ForeignKey(Adventure, on_delete=models.CASCADE, related_name='booking_advs')
     number_of_persons = models.IntegerField(default=1)
     amount_paid = models.DecimalField(max_digits=10, decimal_places=2)
-    is_confimed = models.BooleanField(default=False)
+    is_confirmed = models.BooleanField(default=False)
 
     def __str__(self):
         return f'{self.user_id} {self.adventure_id}'
