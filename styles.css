@@ -125,6 +125,9 @@ a {
   padding: 20px;
 }
 
+.team h2 {
+  min-width: 240px;
+}
 /* .team-img {
   width: auto;
   height: 70%;
@@ -137,8 +140,8 @@ a {
 } */
 
 .team-img img {
-  width: 100%;
-  height: auto;
+  width: 200px;
+  height: 270px;
   border-radius: 50%;
 }
 
