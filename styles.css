@@ -141,7 +141,7 @@ a {
 
 .team-img img {
   width: 200px;
-  height: 290px;
+  height: 270px;
   border-radius: 50%;
 }
 
@@ -155,10 +155,6 @@ p {
   margin: 5px 0;
 }
 
-.name,
-.bio {
-  margin: 0 auto;
-}
 
 .icons {
   display: flex;
