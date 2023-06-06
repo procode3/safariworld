@@ -116,6 +116,7 @@ a {
   justify-content: space-evenly;
   gap: 20px;
   margin-top: 20px;
+  text-align: center;
 }
 
 .team div {
