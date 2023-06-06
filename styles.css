@@ -107,6 +107,10 @@ a {
   text-align: center;
 }
 
+.developers > h2 {
+  font-size: 40px;
+}
+
 .team {
   display: flex;
   justify-content: space-evenly;
@@ -115,6 +119,7 @@ a {
 }
 
 .team div {
+  border-radius: 10px;
   width: 200px;
   padding: 20px;
 }
@@ -126,7 +131,6 @@ a {
   justify-content: center;
   background-color: #f9f9f9;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-  border-radius: 50%;
   object-fit: cover;
   object-position: center;
 }
@@ -145,6 +149,17 @@ h2 {
 p {
   font-size: 14px;
   margin: 5px 0;
+}
+
+.name,
+.bio {
+  margin: 0 auto;
+}
+
+.icons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
 }
 
 footer {
