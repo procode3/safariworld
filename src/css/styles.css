@@ -68,12 +68,11 @@ a {
 .overlay h1 {
   font-size: 40pt;
   font-weight: bold;
-  text-shadow: 0 0 0.3em #000;
   margin: 0 0 1em;
 }
+
 .overlay p {
   font-size: 16pt;
-  text-shadow: 0 0 0.3em #000;
   margin: 1em 0;
 }
 
@@ -128,16 +127,6 @@ a {
 .team h2 {
   min-width: 240px;
 }
-/* .team-img {
-  width: auto;
-  height: 70%;
-  display: flex;
-  justify-content: center;
-  background-color: #f9f9f9;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-  /* object-fit: cover;
-  object-position: center;
-} */
 
 .team-img img {
   width: 200px;
@@ -155,7 +144,6 @@ p {
   margin: 5px 0;
 }
 
-
 .icons {
   display: flex;
   justify-content: center;
@@ -171,6 +159,23 @@ footer {
 }
 
 @media only screen and (max-width: 600px) {
+  .image {
+    min-width: 90%;
+    width: 90%;
+  }
+  .overlay {
+    width: 96%;
+  }
+  .overlay h1 {
+    margin-top: 30px;
+    font-size: 35pt;
+  }
+
+  .overlay p {
+    font-size: 12pt;
+    margin: 1em 0;
+  }
+
   .destinations {
     display: flex;
     flex-direction: column;
@@ -195,5 +200,19 @@ footer {
 
   .booking > div {
     margin-bottom: 40px;
+  }
+
+  .team {
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+  }
+
+  .team div {
+    width: 80%;
+  }
+
+  footer {
+    flex-direction: column;
   }
 }
