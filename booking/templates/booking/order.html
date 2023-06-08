@@ -104,9 +104,9 @@
       <input
         class="bg-blue-300 p-1 text-[#000000] focus:outline-none"
         type="text"
-        id="tel"
+        id="phone"
       />
-      <a class="bg-red-600 text-white font-xl p-2" href="#">Pay</a>
+      <a class="bg-red-600 text-white font-xl p-2" id="pay" href="#">Pay</a>
     </div>
     <a id="confirm" class="bg-red-600 text-white font-xl p-2 font-bold"
       >Complete Order</a
@@ -172,7 +172,7 @@
        const data = {
          "id": id,
          "count": document.getElementById("quantity").textContent,
-         "phone": "254707819550"
+         "phone": document.getElementById("phone").value
        }
        
        console.log(data);
@@ -201,6 +201,11 @@
       });
 
     });
+  
+
+
+
+
 
 </script>
 

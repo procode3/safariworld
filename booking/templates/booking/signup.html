@@ -30,7 +30,7 @@
       style="background-color: #357b95"
     >
       <h1 class="text-4xl text-center mb-4">Sign Up</h1>
-      <form method="POST" action="{% url 'login' %}?next={{ request.GET.next }}" class="flex-col items-center">
+      <form method="POST" action="{% url 'signup' %}" class="flex-col items-center">
         {% csrf_token %}
         <div class="my-3 flex flex-col justify-between">
           {{ form.username.label }} {{ form.username }}

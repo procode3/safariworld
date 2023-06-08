@@ -9,6 +9,8 @@ from django.contrib.auth.decorators import login_required
 import re
 from django.conf import settings
 import json
+import requests
+
 
 def index(request):
     adventures = Adventure.objects.order_by('departure_date')[:4]
@@ -64,7 +66,44 @@ def order_page(request, id):
         booking = Booking(**booking_kwargs)
         booking.save()
         
-        
+        url = 'https://sandbox.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials'
+        headers = {
+                 'Content-Type': 'application/json',
+                 'Authorization': 'Basic Rm90cDJBdjdrUDl1djc5TTNZdUc3SHhId0padkRaNEc6STF5MmVGT0RnY1N2azFncA',            
+                 }
+
+        response = requests.get(url, headers=headers)
+
+        if response.status_code == 200:
+            data = response.json()
+            print(data)
+            prompt_url = "https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest"
+            headers = {
+                      'Content-Type': 'application/json',
+                      'Authorization': f'Bearer {data.get("access_token")}',           
+                      }
+            
+            body =   {
+                  "BusinessShortCode": 174379,
+                  "Password": "MTc0Mzc5YmZiMjc5ZjlhYTliZGJjZjE1OGU5N2RkNzFhNDY3Y2QyZTBjODkzMDU5YjEwZjc4ZTZiNzJhZGExZWQyYzkxOTIwMjMwNjAzMDAyOTE3",
+                  "Timestamp": "20230603002917",
+                  "TransactionType": "CustomerPayBillOnline",
+                  "Amount": 5,
+                  "PartyA": 254708374149,
+                  "PartyB": 174379,
+                  "PhoneNumber": f'254{obj.get("phone")}',
+                  "CallBackURL": "https://mydomain.com/path",
+                  "AccountReference": "Samburu Glamping",
+                  "TransactionDesc": "Payment of X" 
+                  }
+            response = requests.post(prompt_url, data=json.dumps(body), headers=headers)
+            if response.status_code == 200:
+                print('Sucessful')
+            else:
+                print('Try again')
+            
+        else:
+            print('An error occurred:', response.status_code)
     adventure = Adventure.objects.get(id=id)
     context = {'adventure': adventure}
 
@@ -78,6 +117,8 @@ def login_page(request):
 
         user = authenticate(request, username=username, password=password)
         next = request.POST.get('next', '/')
+        if not next:
+            next='/'
         if user is not None:
             login(request, user)
 
@@ -100,12 +141,12 @@ def signup_page(request):
 
     if request.method == 'POST':
         form = SignUpForm(request.POST)
-        print(form)
         if form.is_valid():
             form.save()
             return redirect('login')
         else:
             print('Error submitting')
+            print(form.errors)
     context = {
                 'form': form,
             }
