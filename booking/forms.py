@@ -3,14 +3,18 @@ from django.contrib.auth.forms import UserCreationForm
 from .models import User
 
 class CustomPasswordInput(PasswordInput):
+    """class for setting up custom password field"""
     def __init__(self, attrs=None):
+        """Adding styling to the passworld field"""
         default_attrs = {'class': 'border-2 border-black text-black'}
         if attrs:
             default_attrs.update(attrs)
         super().__init__(default_attrs)
 
 class SignUpForm(UserCreationForm):
+    """class that handles the creation of the sign up page"""
     class Meta(UserCreationForm.Meta):
+        """Defining custom fields for the signup form"""
         model = User
         fields = UserCreationForm.Meta.fields + ('username', 'first_name', 'last_name', 'email', 'date_of_birth', 'phone_number', 'gender', 'password1', 'password2')
         widgets = {
