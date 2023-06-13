@@ -20,9 +20,9 @@ Safari World is a web app that will allow users to book for travels to different
 
 ## Usage
 - Access /adventures to view available trips
-<br> <img src="src/images/adventures.gif" width="1024" height="500">
+<br> <img src="src/images/adventures.gif" width="900" height="400">
 - Click on book now to book a trip after logging in
-<br> <img src="src/images/booking.gif" width="1024" height="500">
+<br> <img src="src/images/booking.gif" width="900" height="400">
 - Sign up on /signup and login on /login
 
 
