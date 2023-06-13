@@ -15,7 +15,7 @@ Safari World is a web app that will allow users to book for travels to different
 - Visit the local host address on port 8000 on the browser
 <br>```localhost:8000/```
 - Access the admin site on /admin
-- Create a user account and make a booking :)
+- Create a user account and make a booking 😃
  
 
 ## Usage
