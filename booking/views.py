@@ -13,11 +13,13 @@ import requests
 
 
 def index(request):
+    """Handles the index page"""
     adventures = Adventure.objects.order_by('departure_date')[:4]
     context = {"adventures": adventures}
     return render(request, 'booking/index.html', context)
 
 def adventures(request):
+    """Route for all adventures in the system"""
     p = Paginator(Adventure.objects.all(), 3)
     page = request.GET.get('page')
     adventures = p.get_page(page)
@@ -25,6 +27,7 @@ def adventures(request):
     return render(request, 'booking/all_adventures.html', context)
 
 def adv_details(request, id):
+    """Route for a specific adventure"""
     adventure_url = reverse('adventure', args=[id])
     adv = Adventure.objects.get(id=id)
     activities = [activity.strip() for activity in adv.activities.split(",")]
@@ -36,16 +39,9 @@ def adv_details(request, id):
 
     return render(request, 'booking/adventure.html', context)
 
-def book_adv(request, id):
-    authenticated = True
-
-    if authenticated:
-        return redirect(f'/{id}/order')
-    else:
-        return redirect('/login')
-
 @login_required
 def order_page(request, id):
+    """Handles booking for a specific adventure"""
     print(f'user in both methods: {request.user}')
     adventure = Adventure.objects.get(id=id)
     if request.method == 'POST':
@@ -110,6 +106,7 @@ def order_page(request, id):
     return render(request, 'booking/order.html', context) 
 
 def login_page(request):
+    """Handles user authentication"""
     if request.method == 'POST':
         username = request.POST.get('username')
         password = request.POST.get('password')
@@ -129,6 +126,7 @@ def login_page(request):
     return render(request, 'booking/login.html')
 
 def logout_page(request):
+    """Ends the current user session"""
     next = request.GET.get('next', '/')
     logout(request)
     pattern = r'/.*/order'
@@ -137,6 +135,7 @@ def logout_page(request):
     return HttpResponseRedirect(next)
 
 def signup_page(request):
+    """Handles the creation of a user"""
     form = SignUpForm()
 
     if request.method == 'POST':
@@ -150,4 +149,4 @@ def signup_page(request):
     context = {
                 'form': form,
             }
-    return render(request, 'booking/signup.html', context)      
+    return render(request, 'booking/signup.html', context)
