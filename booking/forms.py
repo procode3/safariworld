@@ -28,6 +28,7 @@ class SignUpForm(UserCreationForm):
         }
 
     def __init__(self, *args, **kwargs):
+        """Creating custom password input widgets"""
         super().__init__(*args, **kwargs)
         self.fields['password1'].widget = CustomPasswordInput()
         self.fields['password2'].widget = CustomPasswordInput()
