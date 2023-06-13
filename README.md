@@ -7,22 +7,22 @@ Safari World is a web app that will allow users to book for travels to different
 ## Installation in Linux
 - Clone the repositiory
 - Start the virtual env inside safari directory
-```source safari/bin/activate```
+<br>```source safari/bin/activate```
 - Run pip3 to install the dependencies
-```pip3 install -r requirements.txt```
+<br>```pip3 install -r requirements.txt```
 - Run the server in the root directory of the project
-```python3 manage.py runserver```
+<br>```python3 manage.py runserver```
 - Visit the local host address on port 8000 on the browser
-```localhost:8000/```
+<br>```localhost:8000/```
 - Access the admin site on /admin
 - Create a user account and make a booking :)
  
 
 ## Usage
 - Access /adventures to view available trips
-![Adventures](src/images/adventures.gif)
+<br> <img src="src/images/adventures.gif" width="600" height="400">
 - Click on book now to book a trip after logging in
-![Booking](src/images/booking.gif)
+<br> <img src="src/images/booking.gif" width="600" height="400">
 - Sign up on /signup and login on /login
 
 
