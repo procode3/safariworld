@@ -1,4 +1,4 @@
-#!/home/manueltechs/Documents/safariworld/safari/bin/python
+#!/home/manueltechs/Documents/safariworld/safari/bin/python3
 # -*- coding: utf-8 -*-
 import re
 import sys
